@@ -1,7 +1,10 @@
 ## Követelménylista
-- Játékos nevének és előrehaladásának elmentése
+- Regisztrációs lehetőség
+- Bejelentkezési lehetőség
+- Játékos nevének és előrehaladásának elmentése (felhasználóhoz kötött eredmény számontartása)
+- Jelszavak titkosított tárolása
 - Könnyen kezelhető, intuitív felület
-- Egyértelmű interakciós lehetőségek (válaszadás, kilépés, újraindítás)
+- Egyértelmű interakciós lehetőségek (feladattípus válaztás, válaszadás, ki- és bejelentkezés)
 - Nyelvhez kapcsolódó, megfelelő nehézségű kérdések és válaszok
 - Szótár könnyű kezelése
 - A hallott szövegértékes feladatnál érthető legyen a hang
