@@ -2,7 +2,11 @@ body, html {
   height: 100%;
 }
 
-.background {
+/*
+Blur effect fix
+https://stackoverflow.com/questions/28870932/how-to-remove-white-border-from-blur-background-image
+*/
+body {
   position: absolute;
   background-image: url('../images/background_image.jpg');
 
@@ -14,25 +18,18 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 
-  /* Place it behind the content */
-  z-index: -1;
-}
 
-/*
-Blur effect fix
-https://stackoverflow.com/questions/28870932/how-to-remove-white-border-from-blur-background-image
-*/
-.background::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
   backdrop-filter: blur(10px); /* apply the blur */
   -webkit-backdrop-filter: blur(10px);
-  pointer-events: none; /* make the overlay click-through */
 }
 
 h1 {
-  color: whitesmoke;
+  color: #575757;
+font-family: 'Inter', sans-serif;
+  font-weight: 800;
 }
 
+.customCard {
+  background-color: rgba(255,255,255,0.5);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .25);
+}

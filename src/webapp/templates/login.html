@@ -1,5 +1,39 @@
 {% extends "base_template.html" %}
 {% block title %}Login{% endblock %}
 {% block content %}
-<h1>VerbVenture Login Page</h1>
+
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+
+        <div class="card h-75 w-50 customCard ">
+            <div class="card-body">
+
+                <h1 class="text-center mb-5 mt-3">VerbVenture</h1>
+
+                <form method="POST" class="mb-3 mt-md-4">
+                    <div class="mb-3">&nbsp;</div>
+
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control" id="userName" name="userName" placeholder="John Doe">
+                        <label for="floatingInput">Felhasználónév</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        <label for="floatingPassword">Jelszó</label>
+                    </div>
+
+                    <div class="d-grid">
+                        <button id="loginButton" class="btn btn-dark" type="submit">Bejelentkezés</button>
+                    </div>
+
+                </form>
+
+                <div class="d-grid">
+                    <a id="registerButton" class="btn btn-dark" href="{{url_for('auth.register')}}" role="button">Regisztráció</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

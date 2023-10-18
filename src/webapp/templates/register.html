@@ -1,5 +1,46 @@
 {% extends "base_template.html" %}
 {% block title %}Register{% endblock %}
+
 {% block content %}
-<h1>VerbVenture Register Page</h1>
+
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+
+        <div class="card h-75 w-50 customCard ">
+            <div class="card-body">
+
+                <h1 class="text-center mb-5 mt-3">VerbVenture</h1>
+
+                <form method="POST" class="mb-3 mt-md-4">
+                    <div class="mb-3">&nbsp;</div>
+
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control" id="userName" name="userName" placeholder="John Doe">
+                        <label for="floatingInput">Felhasználónév</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+                        <label for="floatingPassword">Jelszó</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" id="password2" name="password2" placeholder="Password">
+                        <label for="floatingPassword">Jelszó újra</label>
+                    </div>
+
+                    <div class="d-grid">
+                        <button id="loginButton" class="btn btn-dark" type="submit">Regisztráció</button>
+                    </div>
+
+                </form>
+
+                <div class="d-grid">
+                    <a id="backButton" class="btn btn-dark" href="{{url_for('auth.login')}}" role="button"><</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}
