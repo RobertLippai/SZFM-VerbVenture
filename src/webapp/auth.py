@@ -1,6 +1,9 @@
 # We will place the endpoints here
 # This is only used for login, logout, register
 from flask import Blueprint, render_template, redirect, url_for, request, flash
+from . import user_manager
+from .models import User
+from bcrypt import hashpw, checkpw, gensalt
 
 auth = Blueprint('auth', __name__)
 
@@ -14,9 +17,18 @@ def login():
         password = request.form.get('password')
         print(user_name, password)
 
-        flash('Helytelen jelszó, próbáld újra!', category='error')
-        flash('Nincs ilyen felhasználó regisztrálva!', category='error')
-        flash('Sikeres bejelentkezés!', category='succes')
+        # Check if the user is in the database
+        user = User.find_user_by_username(user_name, user_manager.load_users_from_file())
+
+        if user:
+            # Check if the password matches
+            if checkpw(password.encode('utf8'), user.password.encode('utf8')):
+                flash('Sikeres bejelentkezés!', category='succes')
+                return redirect(url_for('views.landing_page'))  # blueprint.function name
+            else:
+                flash('Helytelen jelszó, próbáld újra!', category='error')
+        else:
+            flash('Nincs ilyen felhasználó regisztrálva!', category='error')
 
     return render_template("login.html")
 
@@ -33,17 +45,25 @@ def register():
 
         print(user_name, password1, password2)
 
-        # Checks
-        if len(user_name) < 4:
+        # Check if the user already exists, and other checks
+        user = User.find_user_by_username(user_name, user_manager.load_users_from_file())
+
+        if user:
+            flash('Email already in use!', category='error')
+        # ellenőrzéseket csinálunk
+        elif len(user_name) < 4:
             flash('A felhasználónévnek legalább 6 karakter hosszúnak kell lennie.', category='error')
         elif password1 != password2:
             flash('A jelszavak nem eggyeznek meg!', category='error')
         elif len(password1) < 7:
             flash('A jelszó legalább 7 karakterből kell, hogy álljon!', category='error')
         else:
-            # Register user...
+            # Register and add to the database
+            new_user = User(9, user_name, hashpw(password1.encode('utf8'), gensalt()).decode())
+            user_manager.add_user_to_file(new_user)
             flash('Sikeres regisztráció!', category='succes')
-            #return redirect(url_for('views.landing_page'))
-            return redirect(url_for('auth.login'))
+            # redirect to home
+            return redirect(url_for('views.landing_page')) # blueprint.function name
+
 
     return render_template("register.html")

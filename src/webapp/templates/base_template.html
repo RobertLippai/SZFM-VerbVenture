@@ -39,9 +39,9 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             {% if category == 'error' %}
-                                <h5 class="modal-title">Alert!</h5>
+                                <h5 class="modal-title">Figyelem!</h5>
                             {% else %}
-                                <h5 class="modal-title">Info!</h5>
+                                <h5 class="modal-title">Információ</h5>
                             {% endif %}
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -50,7 +50,7 @@
                             <p>{{ loop.index }}</p>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
                         </div>
                     </div>
                 </div>

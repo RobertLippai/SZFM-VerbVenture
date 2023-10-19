@@ -1,5 +1,7 @@
 from flask import Flask
 
+from .user_manager import *
+
 # Initializing the web app
 def create_app():
     app = Flask(__name__)
