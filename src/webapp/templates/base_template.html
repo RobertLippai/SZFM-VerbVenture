@@ -25,6 +25,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Inter:wght@800&family=Martian+Mono:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 
     <title>{% block title %}Base Template{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% block header %} {% endblock %}
 
 </head>
 <body>
@@ -81,7 +83,6 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-
 
 </body>
 </html>

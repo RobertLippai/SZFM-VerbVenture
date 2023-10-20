@@ -4,14 +4,16 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from . import user_manager
 from .models import User
 from bcrypt import hashpw, checkpw, gensalt
-
+from flask_login import login_user, logout_user, current_user
 auth = Blueprint('auth', __name__)
 
 # Landing Page
 # Access it like this: (url_for('views.landing_page'))
-
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('views.landing_page'))
+
     if request.method == 'POST':
         user_name = request.form.get('userName')
         password = request.form.get('password')
@@ -24,6 +26,7 @@ def login():
             # Check if the password matches
             if checkpw(password.encode('utf8'), user.password.encode('utf8')):
                 flash('Sikeres bejelentkezés!', category='succes')
+                login_user(user, remember=True) # Megjegyzi a bejelentkezést, addig amíg a szerver újra nem indul
                 return redirect(url_for('views.landing_page'))  # blueprint.function name
             else:
                 flash('Helytelen jelszó, próbáld újra!', category='error')
@@ -34,10 +37,14 @@ def login():
 
 @auth.route('/logout')
 def logout():
+    logout_user()
     return redirect(url_for('auth.login'))  # blueprint.function name
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('views.landing_page'))
+
     if request.method == 'POST':
         user_name = request.form.get('userName')
         password1 = request.form.get('password1')
@@ -61,8 +68,9 @@ def register():
             # Register and add to the database
             new_user = User(9, user_name, hashpw(password1.encode('utf8'), gensalt()).decode())
             user_manager.add_user_to_file(new_user)
+            login_user(new_user, remember=True)  # Bejelnetkezteti a felhasználót a regisztrálás után
             flash('Sikeres regisztráció!', category='succes')
-            # redirect to home
+            # Redirect to home page
             return redirect(url_for('views.landing_page')) # blueprint.function name
 
 

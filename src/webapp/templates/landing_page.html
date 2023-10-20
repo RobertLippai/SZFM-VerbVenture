@@ -1,5 +1,12 @@
 {% extends "base_template.html" %}
+{% block header %}{% include '_dynamic_background.html' %}{% endblock %}
+
 {% block title %}Dashboard{% endblock %}
+
 {% block content %}
+
 <h1>VerbVenture Landing Page</h1>
+<p>Üdvözlünk, {{ current_user.username }}!</p>
+<a class="nav-item nav-link" id="backgroundChange" href="/background_selector">Háttérkép változtatás</a>
+<a class="nav-item nav-link" id="logout" href="/logout">Kijelentkezés</a>
 {% endblock %}
