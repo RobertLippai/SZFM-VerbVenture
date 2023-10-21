@@ -1,0 +1,38 @@
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/background_selector.css') }}">
+
+<div class="bgSelectorModal modal fade" id="backgroundModal" tabindex="-1" aria-labelledby="backgroundModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="backgroundModalLabel">Válassz egy háttérképet!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{ url_for('settings.set_background') }}">
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4" id="backgroundImagesFill">
+
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary" name="preferred_background" value="{{ image }}">Mentés</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById('backgroundModal').addEventListener('shown.bs.modal', function () {
+        console.log("Background selector window opened");
+        $.ajax({
+            type: 'GET',
+            url: '/get_background_images',
+            success: function(data) {
+                $('#backgroundImagesFill').html(data);
+            }
+        });
+    })
+</script>

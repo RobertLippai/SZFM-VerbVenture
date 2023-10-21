@@ -7,11 +7,11 @@
 {% block title %}Background Selector{% endblock %}
 {% block content %}
 
-    <div class="modal fade" id="backgroundModal" tabindex="-1" aria-labelledby="backgroundModalLabel" aria-hidden="true">
+    <div class="bgSelectorModal modal fade" id="backgroundModal" tabindex="-1" aria-labelledby="backgroundModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="backgroundModalLabel">Válassz egy háttékrépet!</h5>
+                    <h5 class="modal-title" id="backgroundModalLabel">Válassz egy háttérképet!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -19,12 +19,11 @@
 
                         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-
                             {% for image in background_images %}
                                 <div class="col">
                                     <div class="card">
                                         <label>
-                                            <input type="radio" name="selected_background" value={{ image }} checked>
+                                            <input class="bgSelectorModal" type="radio" name="selected_background" value={{ image }} checked>
                                             <img src="{{ url_for('static', filename='images/' + image) }}" class="card-img-top">
                                         </label>
                                     </div>

@@ -1,5 +1,8 @@
 {% extends "base_template.html" %}
-{% block header %}{% include '_dynamic_background.html' %}{% endblock %}
+{% block header %}
+    {% include '_dynamic_background.html' %}
+    {% include '_embedded_background_selector.html' %}
+{% endblock %}
 
 {% block title %}Dashboard{% endblock %}
 
@@ -7,6 +10,8 @@
 
 <h1>VerbVenture Landing Page</h1>
 <p>Üdvözlünk, {{ current_user.username }}!</p>
-<a class="nav-item nav-link" id="backgroundChange" href="/background_selector">Háttérkép változtatás</a>
-<a class="nav-item nav-link" id="logout" href="/logout">Kijelentkezés</a>
+<a type="button" class="btn btn-primary" id="backgroundChange" href="/background_selector">Háttérkép változtatás</a>
+<a type="button" class="btn btn-primary" id="backgroundChangePopUp" data-bs-toggle="modal" data-bs-target="#backgroundModal" data-bs-whatever="@mdo">Háttérkép változtatás (Pop-Up)</a>
+<a type="button" class="btn btn-primary" id="logout" href="/logout">Kijelentkezés</a>
+
 {% endblock %}
