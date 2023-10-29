@@ -1,22 +1,8 @@
-from flask_login import UserMixin # ez kell a felhasználói fiókhoz
+from . import db
+from flask_login import UserMixin
 
-class User(UserMixin):
-    def __init__(self, id, username, password, prefered_background='background_image.jpg'):
-        self.id = id
-        self.username = username
-        self.password = password
-        self.prefered_background = prefered_background
-
-    @staticmethod
-    def find_user_by_username(username, users_list):
-        for user in users_list:
-            if user.username == username:
-                return user
-        return None
-
-    @staticmethod
-    def find_user_by_id(id, users_list):
-        for user in users_list:
-            if user.id == id:
-                return user
-        return None
+class User(db.Model, UserMixin): # a UserMixin csak a felhasználói fiók bejelntkezéshez kell, a flask_login modul miatt!
+    id = db.Column(db.Integer, primary_key=True) # Int type, primary key
+    username = db.Column(db.String(150), unique=True) # Strings needs to have a max length set
+    password = db.Column(db.String(150))
+    preferred_background = db.Column(db.String(150), default="background_image.jpg")

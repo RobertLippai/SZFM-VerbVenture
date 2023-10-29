@@ -1,10 +1,11 @@
 # We will place the endpoints here
 # This is only used for login, logout, register
 from flask import Blueprint, render_template, redirect, url_for, request, flash
-from . import user_manager
 from .models import User
 from bcrypt import hashpw, checkpw, gensalt
 from flask_login import login_user, logout_user, current_user
+from . import db # imports from __init__.py
+
 auth = Blueprint('auth', __name__)
 
 # Landing Page
@@ -20,7 +21,8 @@ def login():
         print(user_name, password)
 
         # Check if the user is in the database
-        user = User.find_user_by_username(user_name, user_manager.load_users_from_file())
+        #user = User.find_user_by_username(user_name, user_manager.load_users_from_file())
+        user = User.query.filter_by(username=user_name).first() # visszadja az összes felhasználót akinek az az emailje
 
         if user:
             # Check if the password matches
@@ -53,7 +55,8 @@ def register():
         print(user_name, password1, password2)
 
         # Check if the user already exists, and other checks
-        user = User.find_user_by_username(user_name, user_manager.load_users_from_file())
+        #user = User.find_user_by_username(user_name, user_manager.load_users_from_file())
+        user = User.query.filter_by(username=user_name).first()  # returns all the users with the same name
 
         if user:
             flash('Email already in use!', category='error')
@@ -66,8 +69,12 @@ def register():
             flash('A jelszó legalább 7 karakterből kell, hogy álljon!', category='error')
         else:
             # Register and add to the database
-            new_user = User(9, user_name, hashpw(password1.encode('utf8'), gensalt()).decode())
-            user_manager.add_user_to_file(new_user)
+            #new_user = User(9, user_name, hashpw(password1.encode('utf8'), gensalt()).decode())
+            new_user = User(username=user_name, password=hashpw(password1.encode('utf8'), gensalt()).decode())
+
+            db.session.add(new_user)
+            db.session.commit()
+            #user_manager.add_user_to_file(new_user)
             login_user(new_user, remember=True)  # Bejelnetkezteti a felhasználót a regisztrálás után
             flash('Sikeres regisztráció!', category='succes')
             # Redirect to home page

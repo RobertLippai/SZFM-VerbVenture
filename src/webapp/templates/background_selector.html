@@ -1,5 +1,5 @@
 {% block header %}
-    {% include '_dynamic_background.html' %}
+    {% include 'embeddables/_dynamic_background.html' %}
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/background_selector.css') }}">
 {% endblock %}
 
@@ -12,7 +12,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="backgroundModalLabel">Válassz egy háttérképet!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="{{ url_for('settings.background_selector') }}">

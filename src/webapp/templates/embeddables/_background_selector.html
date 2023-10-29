@@ -23,16 +23,4 @@
     </div>
 </div>
 
-
-<script>
-    document.getElementById('backgroundModal').addEventListener('shown.bs.modal', function () {
-        console.log("Background selector window opened");
-        $.ajax({
-            type: 'GET',
-            url: '/get_background_images',
-            success: function(data) {
-                $('#backgroundImagesFill').html(data);
-            }
-        });
-    })
-</script>
+<script src="{{ url_for('static', filename='/js/embedded_background_selector.js') }}"></script>

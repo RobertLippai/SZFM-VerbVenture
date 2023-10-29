@@ -2,7 +2,7 @@
 from flask import Blueprint, render_template, jsonify
 from flask_login import login_required, current_user
 from flask import request, redirect, url_for
-from . import user_manager
+from . import db # imports from __init__.py
 
 settings = Blueprint('settings', __name__)
 
@@ -34,7 +34,11 @@ def set_background():
     preferred_background = request.form.get('selected_background')
 
     # Update background for the current user
-    user_manager.update_preferred_background(current_user.username, preferred_background)
+    #user_manager.update_preferred_background(current_user.username, preferred_background)
+
+    current_user.preferred_background = preferred_background
+
+    db.session.commit()
 
     return redirect(request.referrer) # Redirect to the  page where the request was sent from
 
@@ -45,7 +49,11 @@ def background_selector():
         preferred_background = request.form.get('selected_background')
 
         # Update background for the current user
-        user_manager.update_preferred_background(current_user.username, preferred_background)
+        #user_manager.update_preferred_background(current_user.username, preferred_background)
+
+        current_user.preferred_background = preferred_background
+
+        db.session.commit()
 
         return redirect(url_for('views.landing_page'))  # Redirect to the home page after saving
 
