@@ -1,0 +1,162 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../img/background_classic.jpg");
+    background-size: cover;
+    font-family: Tahoma;
+    background-repeat: no-repeat;
+    font-size: min(16px, calc(3px + 0.4vw));
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+button {
+    color: #686868;
+    background-color: #e3e3e3cc;
+    backdrop-filter: blur(1em);
+    border-radius: 1.5em;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.15)
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #686868;
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(1em);
+    overflow: auto;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+header > * {
+    flex: 1;
+}
+
+header #userinfo {
+    text-align: center;
+    font-size: 3em;
+    height: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 7em;
+    text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.2);
+}
+
+header #control_buttons {
+    margin-top: 20px;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1.5em;
+}
+
+header #control_buttons button {
+    padding: 1em;
+    height: fit-content;
+    font-size: 1.3em;
+}
+
+.clickable {
+    transition: transform 0.1s ease-in-out;
+}
+
+.clickable:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.clickable:active {
+    transform: scale(0.9);
+}
+
+#nav_buttons {
+    margin: 2em;
+    height: 80%;
+    display: grid;
+    gap: 2em;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "A B C D D"
+        "E E C D D"
+        "F F C G G";
+}
+
+#nav_buttons button{
+    font-size: 3em;
+}
+
+#szokartyak {
+    grid-area: A;
+}
+
+#szoparositas {
+    grid-area: B;
+}
+
+#egeszitsd_ki {
+    grid-area: E;
+}
+
+#listening {
+    grid-area: C;
+}
+
+#elorehaladas {
+    grid-area: D;
+}
+
+#szotar {
+    grid-area: F;
+}
+
+#szokirako {
+    grid-area: G;
+}
+
+@media screen and (max-width: 1000px) {
+    header {
+        display: grid;
+        grid-template-rows: max-content max-content;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    header h1 {
+        grid-row: 2;
+        grid-column: span 2;
+    }
+
+    #nav_buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #nav_buttons button {
+        height: 2em;
+    }
+}
