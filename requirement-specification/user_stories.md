@@ -78,3 +78,30 @@ Miután újra csatlakozik a repülőgép Wi-Fi hálózatához, megnyitja a Chrom
 
 Most már elkezdheti az angol szavak tanulását, hogy meglepje az unokáját.
 
+# Főmenü Story
+![Landing Page](img/Landing.jpg)
+
+Józsi bácsi Nagy Britanniába tartó repülőútja végén döbben rá, hogy sajnos elbóbiskolt, és egyáltalán nem tanult egy angol kifejezést sem! A manóba!
+
+Gyorsan előkapja telefonját, ahol már az általa többször is használni próbált VerbVenture alkalmazás köszönti. A már rutinosra begyakorolt bejelentkezés után rögtön a VerbVenture széle választékú főmenüjében találja magát.
+
+A bal felső sarokban a felhasználóneve köszön vissza rá, míg jobb felül nemcsak kijelentkezni tud, de az idő is ki van jelezve. "Fantasztikus!" – gondolja magában Józsi bácsi – "Így tanulás közben arra is tudok ügyelni, nehogy túlságosan elteljen az idő."
+
+A középen, nagybetűkkel szedett 'VerbVenture' felirat (a név mellesleg Józsi bácsinak nagyon tetszik) alatt a lehetőségek valóságos tárháza jelenik meg főhősünk előtt: a szókártyák, szópárosítás, és mondatkiegészítés feladatokon túl Józsi bácsi egy szótárban is kereshet idegen nyelvű szavakra, vagy ellenőrizheti előrehaladását az azt igérő menüben. "Ennyi lehetőség mellett szinte csoda, ha valaki nem tanulna meg angolul" – gondolja magában.
+
+A nagy izgalmakat kipihenése érdekében Józsi bácsi rányom a kijelentkezés gombra, és visszadől aludni.
+
+# Előrehaladás Story
+![Progress page Page](img/Progress.jpg)
+
+Józsi bácsi, már jól ismert főhősünk egy későbbi alkalom adtán úgy dönt, jó lenne ellenőrini az eddigi tudását, megnézni, mennyire magabiztos már angol ismereteiben.
+
+Ennek érdekében megnyitja a főmenüből az előrehaladás menüpontot, és szemügyre veszi az elétáruló információhalmazt.
+
+Az egyes feladattípusok külön-külön százalékosan vannak osztályozva, tőlük jobbra pedig egy összesített értékelés, és még egy jegy is fel van tüntetve. "Lenyűgöző" – gondolja.
+"Az az érdekes, hogy ezt a sok adatot mind el lehet tárolni valahol."
+
+Józsi bácsi elvégez egy pár feladatot, majd izgalommal tér vissza az előrehaladás menüpontba, és örömmel látja, hogy pontszámai számottevően javultak. "Mégsincs hiába a sok tanulás."
+
+Eredményére oly büszke, hogy rányom a nyomtatás menüpontra, és el is küldi unokájának, milyen sokat fejlődött idegen nyelvi tudása.
+
