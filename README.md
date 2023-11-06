@@ -11,7 +11,7 @@ Make sure you have Python 3.10 installed.
 1. Clone the repository.
 
    ```bash
-   git clone https://github.com/RobertLippai/SZFM-KnowledgeQuest.git
+   git clone https://github.com/RobertLippai/SZFM-VerbVenture
    cd SZFM-VerbVenture
    ```
    
