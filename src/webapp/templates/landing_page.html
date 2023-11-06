@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
-    <link rel="stylesheet" href="css/landing_page.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/landing_page.css') }}">
+	{% include 'embeddables/_dynamic_background.html' %}
 </head>
 <body>
     <main>
@@ -23,7 +24,7 @@
             <button id="szotar" onclick="location.href='szotar.html';" class="clickable">Szótár</button>
             <button id="listening" onclick="location.href='listening.html';" class="clickable">Listening</button>
             <button id="szokirako" onclick="location.href='szokirako.html';" class="clickable">Szókirakó</button>
-            <button id="elorehaladas" onclick="location.href='elorehaladas.html';" class="clickable">Előrehaladás</button>
+            <button id="elorehaladas" onclick="location.href='{{ url_for( 'views.progress') }}'" class="clickable">Előrehaladás</button>
         </div>
     </main>
 </body>

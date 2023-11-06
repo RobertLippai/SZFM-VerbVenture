@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: url("../img/background_classic.jpg");
+    background-image: url("../../img/background_classic.jpg");
     background-size: cover;
     font-family: Tahoma;
     background-repeat: no-repeat;

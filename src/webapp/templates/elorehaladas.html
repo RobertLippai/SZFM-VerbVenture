@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
-    <link rel="stylesheet" href="css/elorehaladas.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/elorehaladas.css') }}">
+	{% include 'embeddables/_dynamic_background.html' %}
 </head>
 <body>
     <main>
@@ -23,7 +24,7 @@
                 </div>
                 <div class="scoreline">
                     <div class="scoretitle">Szókártyák:</div>
-                    <div class="scorepercent">76%</div>
+                    <div class="scorepercent">{{ haladas*2 }}%</div>
                 </div>
                 <div class="scoreline">
                     <div class="scoretitle">Egészítsd Ki:</div>
@@ -45,7 +46,7 @@
         </div>
         <button id="printbutton" class="clickable">Nyomtatás</button>
         <button id="backbutton" class="clickable" onclick="location.href='landing_page.html'">
-            <img src="img/svg-path.svg">
+            <img src="{{ url_for('static',filename='img/svg-path.svg') }} ">
         </button>
     </main>
 </body>

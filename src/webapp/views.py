@@ -12,3 +12,9 @@ views = Blueprint('views', __name__)
 def landing_page():
     return render_template("landing_page.html", user=current_user)
 
+
+@views.route('/progress')
+@login_required
+def progress():
+    return render_template("elorehaladas.html", user=current_user, haladas=20)
+
