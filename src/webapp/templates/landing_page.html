@@ -13,7 +13,7 @@
             <div id="userinfo">id: <span id="username">{{ current_user.username }}</span></div>
             <h1>VerbVenture</h1>
             <div id="control_buttons">
-                <button id="logout" class="clickable">Kijelentkezés</button>
+                <button id="logout" onclick="location.href='{{ url_for( 'auth.logout') }}'" class="clickable">Kijelentkezés</button>
                 <button id="time">12:11</button>
             </div>
         </header>
