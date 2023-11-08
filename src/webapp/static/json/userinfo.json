@@ -1,0 +1,53 @@
+[
+    {
+        "userName": "Pastil",
+        "scores": {
+            "Szokirako": 10,
+            "Szokartyak": 20,
+            "EgeszitsdKi": 30,
+            "Listening": 30,
+            "Szoparositas": 32
+        },
+        "tries": {
+            "Szokirako": 12,
+            "Szokartyak": 30,
+            "EgeszitsdKi": 42,
+            "Listening": 100,
+            "Szoparositas": 64
+        }
+    },
+    {
+        "userName": "Bela",
+        "scores": {
+            "Szokirako": 10,
+            "Szokartyak": 20,
+            "EgeszitsdKi": 30,
+            "Listening": 30,
+            "Szoparositas": 32
+        },
+        "tries": {
+            "Szokirako": 12,
+            "Szokartyak": 30,
+            "EgeszitsdKi": 42,
+            "Listening": 100,
+            "Szoparositas": 64
+        }
+    },
+    {
+        "userName": "admintest",
+        "scores": {
+            "Szokirako": 10,
+            "Szokartyak": 20,
+            "EgeszitsdKi": 30,
+            "Listening": 30,
+            "Szoparositas": 32
+        },
+        "tries": {
+            "Szokirako": 12,
+            "Szokartyak": 30,
+            "EgeszitsdKi": 42,
+            "Listening": 1000,
+            "Szoparositas": 6400
+        }
+    }
+]

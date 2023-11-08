@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/landing_page.css') }}">
 	{% include 'embeddables/_dynamic_background.html' %}
 </head>
-<body>
+<body onLoad="startTime()">
     <main>
         <header>
-            <div id="userinfo">id: <span id="username">Felhasználónév</span></div>
+            <div id="userinfo">id: <span id="username">{{ current_user.username }}</span></div>
             <h1>VerbVenture</h1>
             <div id="control_buttons">
                 <button id="logout" class="clickable">Kijelentkezés</button>
@@ -27,5 +27,6 @@
             <button id="elorehaladas" onclick="location.href='{{ url_for( 'views.progress') }}'" class="clickable">Előrehaladás</button>
         </div>
     </main>
+    <script src = "{{ url_for('static',filename='js/timer.js') }}"></script>
 </body>
 </html>

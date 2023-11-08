@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/elorehaladas.css') }}">
 	{% include 'embeddables/_dynamic_background.html' %}
 </head>
-<body>
+<body onLoad="startTime()">
     <main>
         <header>
-            <div id="userinfo">id: <span id="username">Felhasználónév</span></div>
+            <div id="userinfo">id: <span id="username">{{ current_user.username }}</span></div>
             <h1>Előrehaladás</h1>
             <div id="control_buttons">
                 <button id="time">12:11</button>
@@ -20,34 +20,35 @@
             <div id="scores">
                 <div class="scoreline">
                     <div class="scoretitle">Szókirakó:</div>
-                    <div class="scorepercent">30%</div>
+                    <div class="scorepercent">{{ szokirako_score }}%</div>
                 </div>
                 <div class="scoreline">
                     <div class="scoretitle">Szókártyák:</div>
-                    <div class="scorepercent">{{ haladas*2 }}%</div>
+                    <div class="scorepercent">{{ szokartyak_score }}%</div>
                 </div>
                 <div class="scoreline">
                     <div class="scoretitle">Egészítsd Ki:</div>
-                    <div class="scorepercent">82%</div>
+                    <div class="scorepercent">{{ egeszitsdki_score }}%</div>
                 </div>
                 <div class="scoreline">
                     <div class="scoretitle">Listening:</div>
-                    <div class="scorepercent">91%</div>
+                    <div class="scorepercent">{{ listening_score }}%</div>
                 </div>
                 <div class="scoreline">
                     <div class="scoretitle">Szópárosítás:</div>
-                    <div class="scorepercent">100%</div>
+                    <div class="scorepercent">{{ parositas_score }}%</div>
                 </div>
             </div>
             <div id="scorebutton">
-                <div id="percent">Összesített értékelés: <span>72%</span></div>
-                <div id="grade"><span>C</span></div>
+                <div id="percent">Összesített értékelés: <span>{{ sum_score }}%</span></div>
+                <div id="grade"><span>{{ grade_letter }}</span></div>
             </div>
         </div>
-        <button id="printbutton" class="clickable">Nyomtatás</button>
-        <button id="backbutton" class="clickable" onclick="location.href='landing_page.html'">
+        <button id="printbutton" class="clickable">Letöltés</button>
+        <button id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'">
             <img src="{{ url_for('static',filename='img/svg-path.svg') }} ">
         </button>
     </main>
+    <script src = "{{ url_for('static',filename='js/timer.js') }}"></script>
 </body>
 </html>
