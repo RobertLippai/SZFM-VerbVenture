@@ -19,6 +19,7 @@ button {
     color: #686868;
     background-color: #e3e3e3cc;
     backdrop-filter: blur(1em);
+    -webkit-backdrop-filter: blur(1em);
     border-radius: 1.5em;
     border: none;
     font-family: inherit;
@@ -35,6 +36,7 @@ main {
     flex-direction: column;
     box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(1em);
+    -webkit-backdrop-filter: blur(1em);
     overflow: auto;
 }
 

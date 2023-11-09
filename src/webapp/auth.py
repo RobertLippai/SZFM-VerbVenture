@@ -33,6 +33,7 @@ def login():
         if user:
             # Check if the password matches
             if checkpw(password.encode("utf8"), user.password.encode("utf8")):
+                # flash('Sikeres bejelentkezés!', category='succes')
                 login_user(
                     user, remember=True
                 )  # Megjegyzi a bejelentkezést, addig amíg a szerver újra nem indul

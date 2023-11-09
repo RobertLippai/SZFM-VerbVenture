@@ -23,23 +23,22 @@ def add_starting_entry_of(username):
 
 
 def empty_entry(username):
-    new_entry = {
-        "scores": {
-            "Szokirako": 15,
-            "Szokartyak": 25,
-            "EgeszitsdKi": 35,
-            "Listening": 40,
-            "Szoparositas": 45,
-        },
-        "tries": {
-            "Szokirako": 8,
-            "Szokartyak": 15,
-            "EgeszitsdKi": 20,
-            "Listening": 50,
-            "Szoparositas": 70,
-        },
-    }
+    new_entry = {}
     new_entry["userName"] = username
+    new_entry["scores"] = {
+        "Szokirako": 0,
+        "Szokartyak": 0,
+        "EgeszitsdKi": 0,
+        "Listening": 0,
+        "Szoparositas": 0,
+    }
+    new_entry["tries"] = {
+        "Szokirako": 0,
+        "Szokartyak": 0,
+        "EgeszitsdKi": 0,
+        "Listening": 0,
+        "Szoparositas": 0,
+    }
     return new_entry
 
 

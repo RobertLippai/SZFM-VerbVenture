@@ -85,6 +85,7 @@
     }
   },
   {
+    "userName": "jozsibacsitest",
     "scores": {
       "Szokirako": 15,
       "Szokartyak": 25,
@@ -98,10 +99,10 @@
       "EgeszitsdKi": 20,
       "Listening": 50,
       "Szoparositas": 70
-    },
-    "userName": "jozsibacsitest"
+    }
   },
   {
+    "userName": "marinenitest",
     "scores": {
       "Szokirako": 15,
       "Szokartyak": 25,
@@ -115,7 +116,23 @@
       "EgeszitsdKi": 20,
       "Listening": 50,
       "Szoparositas": 70
+    }
+  },
+  {
+    "userName": "artem",
+    "scores": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 0
     },
-    "userName": "marinenitest"
+    "tries": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 0
+    }
   }
 ]
