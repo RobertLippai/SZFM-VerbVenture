@@ -14,7 +14,7 @@ auth = Blueprint("auth", __name__)
 
 # Landing Page
 # Access it like this: (url_for('views.landing_page'))
-@auth.route("/login", methods=["GET", "POST"])
+@auth.route("/", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for("views.landing_page"))
