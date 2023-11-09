@@ -62,7 +62,7 @@ header h1 {
     justify-content: center;
     text-align: center;
     font-size: 7em;
-    text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.2);
+    text-shadow: 0.05em 0.05em rgba(0, 0, 0, 0.2);
 }
 
 header #control_buttons {

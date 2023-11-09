@@ -53,5 +53,4 @@ def download_data():
             "Szópárosítás": str(parositas) + "%",
         },
     }
-    sortedData = {k: data[k] for k in ["Felhasználó", "Összesítés", "Elért eredmények"]}
-    return jsonify(sortedData)
+    return jsonify(data)
