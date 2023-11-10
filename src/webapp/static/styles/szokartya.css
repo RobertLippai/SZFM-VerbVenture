@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../img/background_classic.jpg");
+    background-color: blue;
+    background-size:cover;
+    font-family: Tahoma;
+    background-repeat: repeat;
+    margin: auto;
+    min-height: 100%;
+}
+.header{
+    display: flex;
+}
+.title{
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.486);
+    border-radius: 15px;
+    height: 5.5rem;
+    width: 20rem;
+    margin-top: 0.7rem;
+    padding-top: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.user{
+    margin-left: 2rem;
+    min-width: 25vh;
+    background: #ffffff1e;
+    height: 100%;
+    margin-top: 1rem;
+}
+.elorehaladas{
+    margin-right: 2rem;
+    background: #ffffffe3;
+    height: 100%;
+    margin-top: 1rem;
+    min-width: 25vh;
+}
+.elorehaladas p{
+    text-align: center;
+}
+
+main{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff41;
+    border-radius: 15px;
+    width: 90%;
+    min-height: 80vh;
+    box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
+    margin: auto;
+    margin-bottom: 1rem;
+}
+.title h1{
+    text-align: center;
+}
+.kartyadoboz{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+
+}
+.kartyadoboz .words {
+    display: flex;
+    position: relative;
+    background-color: #e3e3e361;
+    backdrop-filter: blur(1em);
+    border-radius: 1.5em;
+    box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    align-items: center;
+    height: 17vh;
+    flex-basis: 20%;
+    min-width: 28vh;
+
+}
+.kartyadoboz .words:hover{
+    background-color: bisque;
+    cursor: pointer;
+}
+p{
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5vh;
+}
+img{
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.7rem;
+    height: 3vh;
+    width: 3vh;
+}
+.kartyadoboz .footer{
+    display: flex;
+    flex-basis: 100%;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    width: 100vh;
+    margin-bottom: 1rem;
+}
+button{
+    width: 7rem;
+    height: 4rem;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+button p{
+    text-align: center;
+    margin: auto;
+}
+.exit{
+    float: left;
+    background-color: #e3e3e3a9;
+    margin-right: auto;
+    margin-left: 2rem;
+    margin-top: 3rem;
+}
+.next{
+    float:right;
+    background-color: #e3e3e3a9;
+    margin-left: auto;
+    margin-right: 2rem;    
+    margin-top: 3rem;
+}
+.exit:hover{
+    background-color: bisque;
+    cursor: pointer;
+}
+.next:hover{
+    background-color: bisque;
+    cursor: pointer;
+}
