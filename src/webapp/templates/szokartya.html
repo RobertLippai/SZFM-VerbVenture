@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/szokartya.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/szokartya.css') }}">
+    {% include 'embeddables/_dynamic_background.html' %}
     <script>
     var translations = {
         "cat": "macska",
@@ -64,7 +65,7 @@
 <body>
     <div class="header">
     <div class="user">
-        <p>felhasználó neve</p>
+        <p>{{ user.username }}</p>
     </div>
     <div class="title"><h1>Szókártyák</h1></div>
     <div class="elorehaladas">
@@ -79,7 +80,7 @@
         </div>
         {% endfor %}
         <div class="footer">
-            <button class="exit"><p>Kilépés</p></button>
+            <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
             <button class="next"><p>Tovább</p></button>
         </div>
     </main>

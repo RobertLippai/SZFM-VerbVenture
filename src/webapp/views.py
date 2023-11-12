@@ -54,3 +54,18 @@ def download_data():
         },
     }
     return jsonify(data)
+@views.route("/word_cards")
+@login_required
+def word_cards():
+    words = ["dog", "you", "did", "yes", "but", "never", "far", "apple"]
+    return render_template("szokartya.html", user=current_user, words=words)
+
+@views.route("/words_pair")
+@login_required
+def words_pair():
+    leftWords = ["kutya", "láb", "betű", "háború", "víz", "ló", "állat", "igazság"]
+    rightWords = ["dog", "leg", "word", "war", "water", "horse", "animal", "truth"]
+
+    return render_template('szoparosit.html',user=current_user, leftWords=leftWords, rightWords=rightWords)
+
+

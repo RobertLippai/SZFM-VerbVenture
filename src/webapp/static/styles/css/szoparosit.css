@@ -32,18 +32,15 @@ body {
     margin-bottom: 2rem;
 }
 .user{
-    margin-left: 10vh;
+    margin-left: 6vh;
     min-width: 20%;
     background: #ffffff1e;
     height: 100%;
     margin-top: 1rem;
     margin-right: 1rem;
 }
-.user p{
-    margin: 10px
-}
 .elorehaladas{
-    margin-right: 10vh;
+    margin-right: 6vh;
     background: #ffffffe3;
     height: 100%;
     margin-top: 1rem;
@@ -68,6 +65,13 @@ body {
     position: relative;
     z-index: 1;
 }
+.user p{
+    margin: 10px
+}
+.elorehaladas p{
+    text-align: center;
+    margin: 10px;
+}
 @media screen and (max-width: 768px){
     .title{
         display: flex;
@@ -89,6 +93,7 @@ body {
     }
     .user{
         margin-left: 2vh;
+        height: 2rem;
     }
     .elorehaladas{
         margin-right: 2vh;
@@ -115,43 +120,64 @@ main{
     margin: auto;
     margin-bottom: 1rem;
     flex-flow: row wrap;
-    gap: 20px;
 }
-.title h1{
-    text-align: center;
-}
-
-main .words {
+.mainTitle{
     display: flex;
-    position: relative;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+.leftSide{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    flex-flow: row wrap;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+.rightSide{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: auto;
+}
+.leftWord{
+    flex-basis: 100%;
     background-color: #e3e3e361;
     backdrop-filter: blur(1em);
     border-radius: 1.5em;
     box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
-    justify-content: center;
-    align-items: center;
-    height: 17vh;
-    flex-basis: 20%;
-    min-width: 28vh;
     margin-top: 1rem;
 }
-main .words:hover{
-    background-color: bisque;
-    cursor: pointer;
-}
+.rightWord{
+    flex-basis: 100%;
+    background-color: #e3e3e361;
+    backdrop-filter: blur(1em);
+    border-radius: 1.5em;
+    box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
+    margin-top: 1rem;
 
+}
+.rightWords{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.leftWord:hover{
+    font-style: italic;
+    background-color: #f2e2e2ce;
+}
+.rightWord:hover{
+    font-style: italic;
+    background-color: #f2e2e2ce;
+}
 p{
     font-weight: bold;
     text-align: center;
     font-size: 2.5vh;
-}
-img{
-    position: absolute;
-    bottom: 0.3rem;
-    left: 0.7rem;
-    height: 3vh;
-    width: 3vh;
-    z-index: 1;
 }
 main .footer{
     display: flex;
@@ -167,17 +193,20 @@ button{
     height: 4rem;
     border-radius: 10px;
 }
-button p{
-    text-align: center;
-    margin: auto;
-}
 .exit{
     float: left;
+    position: relative;
     background-color: #e3e3e3a9;
     margin-right: auto;
     margin-left: 2rem;
     margin-top: 3rem;
     margin-right: 1rem;
+}
+.exit img{
+    position: absolute;
+    height: 3.6em;
+    left: 3em;
+    bottom: 0.5em;
 }
 .next{
     float:right;

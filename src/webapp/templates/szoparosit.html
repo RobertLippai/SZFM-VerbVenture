@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
-    <link rel="stylesheet" href="../static/styles/szoparosit.css">
+    <link rel="stylesheet" href="../static/styles/css/szoparosit.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    {% include 'embeddables/_dynamic_background.html' %}
 
 <script>
    document.addEventListener("DOMContentLoaded", function () {
@@ -136,7 +137,7 @@
 
     <div class="header">
         <div class="user">
-            <p>felhasználó neve</p>
+            <p>{{ user.username }}</p>
         </div>
         <div class="title"><h1>Szópárosítás</h1></div>
         <div class="elorehaladas">
@@ -164,7 +165,7 @@
             
 
             <div class="footer">
-                <button class="exit"><p>Kilépés</p></button>
+                <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
                 <button class="next"><p>Tovább</p></button>
             </div>
         </main>
