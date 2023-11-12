@@ -21,7 +21,7 @@
         <div id="nav_buttons">
             <button id="szokartyak" onclick="location.href='{{ url_for( 'views.word_cards') }}'" class="clickable">Szókártyák</button>
             <button id="szoparositas" onclick="location.href='{{ url_for( 'views.words_pair') }}'" class="clickable">Szópárosítás</button>
-            <button id="egeszitsd_ki" onclick="location.href='egeszitsd_ki.html';" class="clickable">Egészítsd ki</button>
+            <button id="egeszitsd_ki" onclick="location.href='{{ url_for( 'views.complete_it') }}';" class="clickable">Egészítsd ki</button>
             <button id="szotar" onclick="location.href='szotar.html';" class="clickable">Szótár</button>
             <button id="listening" onclick="location.href='listening.html';" class="clickable">Listening</button>
             <button id="szokirako" onclick="location.href='szokirako.html';" class="clickable">Szókirakó</button>

@@ -68,4 +68,8 @@ def words_pair():
 
     return render_template('szoparosit.html',user=current_user, leftWords=leftWords, rightWords=rightWords)
 
+@views.route("/complete_it")
+@login_required
+def complete_it():
+    return render_template('complete_it.html',user=current_user)
 

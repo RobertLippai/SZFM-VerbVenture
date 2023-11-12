@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerbVenture</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/complete_it.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    {% include 'embeddables/_dynamic_background.html' %}
+    
+</head>
+
+
+<script>
+    function valasz(element){
+        console.log("clicked");
+        if(element.classList.contains("jo")){
+            console.log("clicked jo");
+            element.style.transition = 'background-color 1s ease';
+            element.style.backgroundColor = '#00FF00';
+        }
+        if(element.classList.contains("rossz")){
+            console.log("clicked rossz");
+            element.style.transition = 'background-color 1s ease';
+            element.style.backgroundColor = '#FF0000';
+        }
+
+        setTimeout(function () {
+                        element.style.backgroundColor = '';
+                        },1500);
+    }
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const elorehaladasElem = document.querySelector('.elorehaladas');
+    const nextButton = document.querySelector('.next');
+    let progress = 0;
+
+    nextButton.addEventListener('click', function() {
+        progress += 50; // Adjust the step as needed
+
+        // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
+        if (progress > 100) {
+            progress = 100;
+        }
+
+        elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
+    });
+});
+</script>
+<body>
+
+    <div class="header">
+        <div class="user">
+            <p>{{ user.username }}</p>
+        </div>
+        <div class="title"><h1>Egészítsd ki</h1></div>
+        <div class="elorehaladas">
+            <div class="progress-bar"></div>
+            <p>előrehaladás</p>
+        </div>
+        
+    </div>
+
+        <main>
+            <div class="szoveg">
+                <p>Ez egy nagyon frappáns szöveg lenne, de sajnos hiányzik belőle ____________.</p>
+            </div>
+            <div class="leftSide">
+                
+                <button class="clickable jo leftWord" onclick="valasz(this)"><p>egy szó</p></button>
+                <button class="clickable rossz leftWord" onclick="valasz(this)"><p>a spiritusz</p></button>
+            </div>    
+            <div class="rightSide">
+                <button class="clickable rossz rightWord" onclick="valasz(this)"><p>a mustár</p></button>
+                <button class="clickable rossz rightWord" onclick="valasz(this)"><p>egy Soros-referencia</p></button>
+            </div>
+            
+            
+            <div class="footer">
+                <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
+                <button class="next"><p>Tovább</p></button>
+            </div>
+        </main>
+</body>
+</html>
