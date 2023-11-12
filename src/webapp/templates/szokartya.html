@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
     <link rel="stylesheet" href="../static/styles/szokartya.css">
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+    // Az előrehaladás elem kiválasztása
+    const elorehaladasElem = document.querySelector('.elorehaladas');
+
+    // A tovább gomb kiválasztása
+    const nextButton = document.querySelector('.next');
+
+    // Az előrehaladás százalékának kezdeti értéke
+    let progress = 0;
+
+    // A tovább gombra való kattintás eseménykezelője
+    nextButton.addEventListener('click', function() {
+        // Az előrehaladás növelése
+        progress += 50;
+
+        // A progress-bar elem stílusának beállítása
+        elorehaladasElem.querySelector('.progress-bar').style.background = `linear-gradient(to right, #00FFFF 0%, #00FFFF ${progress}%, transparent ${progress}%, transparent 100%)`;
+    });
+});
+    </script>
 </head>
 <body>
     <div class="header">
@@ -13,10 +35,11 @@
     </div>
     <div class="title"><h1>Szókártyák</h1></div>
     <div class="elorehaladas">
-        <p>elúrehaladás</p>
+        <div class="progress-bar"></div>
+        <p>előrehaladás</p>
     </div>
     </div>
-    <main class="kartyadoboz">
+    <main>
         <div class="words"> <p> dog </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
 
         <div class="words"> <p> te </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
