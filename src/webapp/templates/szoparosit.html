@@ -5,7 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
     <link rel="stylesheet" href="../static/styles/szoparosit.css">
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    var correctPairs = [
+        { left: "kutya", right: "dog" },
+        { left: "láb", right: "leg" },
+        { left: "betű", right: "word" },
+        { left: "háború", right: "war" },
+        { left: "víz", right: "water" },
+        { left: "ló", right: "horse" },
+        { left: "állat", right: "animal" },
+        { left: "igazság", right: "truth" }
+    ];
+
+    // Bal oldali szavak eseménykezelők hozzáadása
+    var leftWords = document.querySelectorAll('.leftWord');
+    leftWords.forEach(function (word) {
+        word.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('text/plain', word.outerHTML);
+        });
+    });
+
+    // Jobb oldali rész eseménykezelők hozzáadása
+    var rightSideList = document.querySelectorAll('.rightWords');
+    var rightSideArray = Array.from(rightSideList);
+
+    rightSideArray.forEach(function (rightSide) {
+        rightSide.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+
+        rightSide.addEventListener('drop', function (e) {
+            e.preventDefault();
+            if (rightSide.children.length < 2) {
+            var draggedWordHTML = e.dataTransfer.getData('text/plain');
+            var rightWordContainer = document.createElement('div');
+            rightWordContainer.classList.add('rightWord');
+            rightWordContainer.innerHTML = draggedWordHTML;
+
+            // Háttérszín és backdropFilter beállítása
+            // rightWordContainer.style.backgroundColor = '#00000000'; // vagy a háttérszín értékét, amit be szeretnél állítani
+            rightWordContainer.style.backdropFilter = 'none'; // vagy a backdropFilter értékét, amit be szeretnél állítani
+
+            rightSide.appendChild(rightWordContainer);
+
+            var rightWordsContent = Array.from(rightSide.children).map(function (child) {
+                return child.innerText;
+            });
+
+            // Ellenőrzés a correctPairs alapján
+            if (rightWordsContent.length >= 2) {
+                var isPairCorrect = correctPairs.some(function (pair) {
+                    return (
+                        rightWordsContent.includes(pair.right) &&
+                        rightWordsContent.includes(pair.left)
+                    );
+                });
+
+                if (isPairCorrect) {
+                    // Helyes párok háttérszínének beállítása
+                    rightSide.querySelectorAll('.rightWord').forEach(function (correctPairElement) {
+                        correctPairElement.style.transition = 'background-color 1s ease';
+                        correctPairElement.style.backgroundColor = '#00FF00';
+                    });
+
+                    // Időzítő a szín visszaállításához
+                    setTimeout(function () {
+                        rightSide.querySelectorAll('.rightWord').forEach(function (correctPairElement) {
+                            correctPairElement.style.backgroundColor = '';
+                        });
+
+                        // Bal oldali szavak eltüntetése
+                        leftWords.forEach(function (word) {
+                            if (rightWordsContent.includes(word.innerText)) {
+                                word.style.display = 'none';
+                            }
+                        });
+                    }, 800);
+
+        console.log('A szópár helyes!');
+                
+    } else {
+        // Helytelen párnak piros háttérszín
+        rightWordContainer.style.transition = 'background-color 1s ease';
+        rightWordContainer.style.backgroundColor = '#FF0000';
+
+        // Időzítő a szín visszaállításához és visszahelyezéshez
+        setTimeout(function () {
+            rightWordContainer.style.backgroundColor = ''; // Visszaállítjuk az eredeti háttérszínt
+            // Visszahelyezzük a divet a kiindulási helyére
+            var originalWord = Array.from(leftWords).find(function (word) {
+                return word.innerText.includes(rightWordContainer.innerText);
+            });
+            originalWord.style.display = 'block';
+        }, 1500);
+        setTimeout(function () {
+            rightWordContainer.remove(); // A div elrejtése
+        }, 2000);
+        console.log("szópár helytelen");
+    }
+}
+
+        };
+    });
+});
+   });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const elorehaladasElem = document.querySelector('.elorehaladas');
+    const nextButton = document.querySelector('.next');
+    let progress = 0;
+
+    nextButton.addEventListener('click', function() {
+        progress += 50; // Adjust the step as needed
+
+        // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
+        if (progress > 100) {
+            progress = 100;
+        }
+
+        elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
+    });
+});
+</script>
 <body>
 
     <div class="header">
@@ -14,30 +140,26 @@
         </div>
         <div class="title"><h1>Szópárosítás</h1></div>
         <div class="elorehaladas">
+            <div class="progress-bar"></div>
             <p>előrehaladás</p>
         </div>
         </div>
 
         <main>
+            <div class="mainTitle"><h2>Párosítsd a magyar szavakat az angolhoz.</h2></div>
             <div class="leftSide">
-                <div class="leftWord"><p>kutya</p></div>
-                <div class="leftWord"><p>láb</p></div>
-                <div class="leftWord"><p>betű</p></div>
-                <div class="leftWord"><p>háború</p></div>
-                <div class="leftWord"><p>víz</p></div>
-                <div class="leftWord"><p>ló</p></div>
-                <div class="leftWord"><p>állat</p></div>
-                <div class="leftWord"><p>igazság</p></div>
+                {% for leftWord in leftWords %}
+                <div class="leftWord" draggable="true" data-word="{{ leftWord }}"><p>{{leftWord}}</p></div>
+                {% endfor %}
+
             </div>
             <div class="rightSide">
-                <div class="rightWord"><p>word</p></div>
-                <div class="rightWord"><p>dog</p></div>
-                <div class="rightWord"><p>war</p></div>
-                <div class="rightWord"><p>horse</p></div>
-                <div class="rightWord"><p>animal</p></div>
-                <div class="rightWord"><p>truth</p></div>
-                <div class="rightWord"><p>water</p></div>
-                <div class="rightWord"><p>leg</p></div>
+                {% for word in rightWords %}
+                <div class="rightWords">
+                <div class="rightWord">    <p>{{word}}</p> </div>
+                </div>
+                {% endfor %}
+            
             </div>
             
 
@@ -46,6 +168,5 @@
                 <button class="next"><p>Tovább</p></button>
             </div>
         </main>
-        
 </body>
 </html>

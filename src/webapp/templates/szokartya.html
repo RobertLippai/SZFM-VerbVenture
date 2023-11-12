@@ -4,29 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
-    <link rel="stylesheet" href="../static/styles/szokartya.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/szokartya.css') }}">
     <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-    // Az előrehaladás elem kiválasztása
+    var translations = {
+        "cat": "macska",
+        "dog": "kutya",
+        "you": "te",
+        "did": "csinálta",
+        "yes": "igen",
+        "but": "de",
+        "never": "soha",
+        "far": "messze",
+        "apple": "alma"
+    };
+
+    function changeWord(element) {
+        console.log("clicked");
+
+        var pElement = element.querySelector('p');
+        var currentText = pElement.textContent.trim(); // trim to remove leading/trailing whitespaces
+
+        console.log("Current text:", currentText);
+
+        // Check if the original text is in the translations
+        // Toggle between the original and translated words
+        if (translations.hasOwnProperty(currentText)) {
+            pElement.textContent = translations[currentText];
+        } else {
+            // Handle the case when the current text is a translated word
+            for (var key in translations) {
+                if (translations.hasOwnProperty(key) && translations[key] === currentText) {
+                    pElement.textContent = key;
+                    break;
+                }
+            }
+        }
+    }
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
     const elorehaladasElem = document.querySelector('.elorehaladas');
-
-    // A tovább gomb kiválasztása
     const nextButton = document.querySelector('.next');
-
-    // Az előrehaladás százalékának kezdeti értéke
     let progress = 0;
 
-    // A tovább gombra való kattintás eseménykezelője
     nextButton.addEventListener('click', function() {
-        // Az előrehaladás növelése
-        progress += 50;
+        progress += 50; // Adjust the step as needed
 
-        // A progress-bar elem stílusának beállítása
-        elorehaladasElem.querySelector('.progress-bar').style.background = `linear-gradient(to right, #00FFFF 0%, #00FFFF ${progress}%, transparent ${progress}%, transparent 100%)`;
+        // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
+        if (progress > 100) {
+            progress = 100;
+        }
+
+        elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
     });
 });
-    </script>
+</script>
 </head>
 <body>
     <div class="header">
@@ -40,22 +73,11 @@
     </div>
     </div>
     <main>
-        <div class="words"> <p> dog </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
-
-        <div class="words"> <p> te </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
-
-        <div class="words"> <p> ti </p> <img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"></div>
-
-        <div class="words"> <p> ja </p> <img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"></div>
-
-        <div class="words"> <p> de </p> <img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"></div>
-
-        <div class="words"> <p> ne </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
-
-        <div class="words"> <p> sztemnem </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
-
-        <div class="words"> <p> alma </p><img src="../static/img/speaker.png" alt="felolvasás" title="felolvas"> </div>
-
+        {% for word in words %}
+        <div class="words" onclick="changeWord(this)"> 
+            <p> {{word}} </p><img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas"> 
+        </div>
+        {% endfor %}
         <div class="footer">
             <button class="exit"><p>Kilépés</p></button>
             <button class="next"><p>Tovább</p></button>
