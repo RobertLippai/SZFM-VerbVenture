@@ -168,5 +168,22 @@
       "Listening": 0,
       "Szoparositas": 0
     }
+  },
+  {
+    "userName": "jozsibacsi",
+    "scores": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 0
+    },
+    "tries": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 0
+    }
   }
 ]

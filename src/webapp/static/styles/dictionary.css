@@ -1,0 +1,132 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../img/background_classic.jpg");
+    background-size: cover;
+    font-family: Tahoma;
+    background-repeat: no-repeat;
+    font-size: min(16px, calc(3px + 0.4vw));
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #686868;
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(1em);
+    -webkit-backdrop-filter: blur(1em);
+    overflow: auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    place-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+#backbutton {
+    height: fit-content;
+    width: 5em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    padding: 0.2em;
+}
+
+#backbutton img{
+    height: 2em;
+ }
+
+.clickable {
+    transition: transform 0.1s ease-in-out;
+}
+
+.clickable:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.clickable:active {
+    transform: scale(0.9);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+header > * {
+    flex: 1;
+}
+
+header #userinfo {
+    text-align: center;
+    font-size: 3em;
+    height: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 7em;
+    text-shadow: 0.05em 0.05em rgba(0, 0, 0, 0.2);
+}
+
+
+button {
+    color: #686868;
+    background-color: #e3e3e3cc;
+    backdrop-filter: blur(1em);
+    -webkit-backdrop-filter: blur(1em);
+    border-radius: 1.5em;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.15)
+}
+
+input {
+	display: block;
+	width: 50%;
+	padding: 1rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--bs-body-color);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #f0f5fa;
+	background-clip: padding-box;
+	border: var(--bs-border-width) solid var(--bs-border-color);
+	border-radius: var(--bs-border-radius);
+	box-shadow: var(--bs-box-shadow-inset);
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+h1 {
+    color: #575757;
+  font-family: 'Inter', sans-serif;
+    font-weight: 800;
+  }
+
+  
