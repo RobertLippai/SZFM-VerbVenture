@@ -73,7 +73,7 @@ def register():
         ).first()  # returns all the users with the same name
 
         if user:
-            flash("Email already in use!", category="error")
+            flash("Ez a felhasználónév már használatban van!", category="error")
         # ellenőrzéseket csinálunk
         elif len(user_name) < 4:
             flash(

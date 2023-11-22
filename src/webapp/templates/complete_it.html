@@ -17,17 +17,15 @@
         console.log("clicked");
         if(element.classList.contains("jo")){
             console.log("clicked jo");
-            element.style.transition = 'background-color 1s ease';
-            element.style.backgroundColor = '#00FF00';
+            element.style.color = '#00FF00';
         }
         if(element.classList.contains("rossz")){
             console.log("clicked rossz");
-            element.style.transition = 'background-color 1s ease';
-            element.style.backgroundColor = '#FF0000';
+            element.style.color = '#FF0000';
         }
 
         setTimeout(function () {
-                        element.style.backgroundColor = '';
+                        element.style.color = '';
                         },1500);
     }
 </script>
@@ -82,7 +80,7 @@
             
             <div class="footer">
                 <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
-                <button class="next"><p>Tovább</p></button>
+                <button class="next">Tovább</button>
             </div>
         </main>
 </body>

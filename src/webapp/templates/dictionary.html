@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerbVenture</title>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/morph/bootstrap.min.css"
+        rel="stylesheet"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/dictionary.css') }}">
+</head>
+<body>
+    <main>
+        <header>
+            <div id="userinfo">id: <span id="username">{{ current_user.username }}</span></div>
+            <h1>Dictionary</h1>
+            <div></div>
+        </header>
+        <div class="content">
+            <input type="text">
+            <div>
+                teszt
+            </div>
+            <div>
+                teszt2
+            </div>
+            <div>
+                teszt3
+            </div>
+        </div>
+        <button id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'">
+            <img src="{{ url_for('static',filename='img/svg-path.svg') }} ">
+        </button>
+    </main>
+    <script src = "{{ url_for('static',filename='js/timer.js') }}"></script>
+</body>
+</html>
