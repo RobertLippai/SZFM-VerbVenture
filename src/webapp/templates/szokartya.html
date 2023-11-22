@@ -31,15 +31,32 @@
                 }
             }
         }
-    }
+    }   
     document.addEventListener('DOMContentLoaded', function() {
     const elorehaladasElem = document.querySelector('.elorehaladas');
     const nextButton = document.querySelector('.next');
+    const backButton = document.querySelector('.back');
     let progress = 0;
     let isFirstClick = 0;
+ 
+    backButton.addEventListener('click', function () {
+        isFirstClick = 0; // Mindig az első lépést kezelje, ha a .back elemre kattintanak
+        progress = 0;
+
+        translations = JSON.parse('{{ translations | tojson | safe }}');
+
+        document.querySelectorAll('.words').forEach(function (word) {
+            word.style.display = 'flex';
+        });
+
+        document.querySelectorAll('.new_words').forEach(function (newWord) {
+            newWord.style.display = 'none';
+        });
+    });
     nextButton.addEventListener('click', function() {
+
         isFirstClick += 1;
-        progress += 50; // Adjust the step as needed
+        progress += 50; 
 
         // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
         if (progress > 100) {
@@ -74,8 +91,15 @@
         }
 
     });
-    
 });
+    
+    //  HANGÉRT FELELŐS RÉSZ:
+function playAudio(index, isNew) {
+    var audioIdPrefix = isNew ? 'new_audio' : 'audio';
+    var audio = document.getElementById(audioIdPrefix + index);
+    audio.play();
+}
+
     </script>
 
 </head>
@@ -91,14 +115,19 @@
     </div>
     </div>
     <main>
+        <div class="backtop"><div class="back"><p>vissza</p></div></div>
         {% for word in words %}
-        <div class="words" onclick="changeWord(this)"> 
-            <p> {{word}} </p><img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas"> 
+        <div class="words" onclick="changeWord(this)" data-hang="hang{{ loop.index }}.mp3"> 
+            <p> {{word}} </p>
+            <img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas" onclick="playAudio({{ loop.index }}, false)"> 
+            <audio id="audio{{ loop.index | string }}" src="{{ url_for('static', filename='voices/hang/hang' + loop.index | string + '.mp3') }}"></audio>
         </div>
         {% endfor %}
         {% for word in new_words %}
-        <div class="words new_words" onclick="changeWord(this)"> 
-            <p> {{word}} </p><img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas"> 
+        <div class="words new_words" onclick="changeWord(this)" data-hang="new_hang{{ loop.index }}.mp3"> 
+            <p> {{word}} </p>
+            <img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas" onclick="playAudio({{ loop.index }}, true)"> 
+            <audio id="new_audio{{ loop.index | string  }}" src="{{ url_for('static', filename='voices/new_hang/hang' + loop.index | string + '.mp3') }}"></audio>
         </div>
         {% endfor %}
         <div class="footer">

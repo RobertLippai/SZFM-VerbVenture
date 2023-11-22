@@ -121,6 +121,29 @@ main{
 .title h1{
     text-align: center;
 }
+.backtop{
+    display:flex;
+    flex-basis: 100%;
+    float: left;
+}
+.backtop p{
+    font-size: 2vh;
+}
+main .back{
+    display:flex;
+    position: relative;
+    background-color: #e3e3e3a9;
+    cursor: pointer;
+    min-height: 3rem;
+    min-width: 6rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+    border-radius: 20px;
+    max-width: 17rem;
+}
+
 
 main .words {
     display: flex;
