@@ -7,17 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/szokartya.css') }}">
     {% include 'embeddables/_dynamic_background.html' %}
     <script>
-    var translations = {
-        "cat": "macska",
-        "dog": "kutya",
-        "you": "te",
-        "did": "csinálta",
-        "yes": "igen",
-        "but": "de",
-        "never": "soha",
-        "far": "messze",
-        "apple": "alma"
-    };
+     var translations = JSON.parse('{{ translations | tojson | safe }}');
+    console.log(translations)
 
     function changeWord(element) {
         console.log("clicked");
@@ -41,15 +32,13 @@
             }
         }
     }
-    </script>
-
-<script>
     document.addEventListener('DOMContentLoaded', function() {
     const elorehaladasElem = document.querySelector('.elorehaladas');
     const nextButton = document.querySelector('.next');
     let progress = 0;
-
+    let isFirstClick = 0;
     nextButton.addEventListener('click', function() {
+        isFirstClick += 1;
         progress += 50; // Adjust the step as needed
 
         // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
@@ -58,9 +47,37 @@
         }
 
         elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
+
+        translations = JSON.parse('{{ new_translations | tojson | safe }}');
+        if (isFirstClick == 0){
+            // Az első kattintásra az összes '.words' elem kiválasztása és a stílusok alkalmazása
+            document.querySelectorAll('.words').forEach(function(word) {
+                word.style.display = 'flex';
+            });
+
+            // Az első kattintásra az összes '.new_words' elem kiválasztása és a stílusok alkalmazása
+            document.querySelectorAll('.new_words').forEach(function(newWord) {
+                newWord.style.display = 'none';
+            });
+        } if (isFirstClick == 1) {
+            // Az első kattintásra az összes '.words' elem kiválasztása és a stílusok alkalmazása
+            document.querySelectorAll('.words').forEach(function(word) {
+                word.style.display = 'none';
+            });
+
+            // Az első kattintásra az összes '.new_words' elem kiválasztása és a stílusok alkalmazása
+            document.querySelectorAll('.new_words').forEach(function(newWord) {
+                newWord.style.display = 'flex';
+            });
+        } if (isFirstClick == 2) {
+            window.location.href = '{{ url_for( 'views.popup', text="ügyi vagy gec") }}';
+        }
+
     });
+    
 });
-</script>
+    </script>
+
 </head>
 <body>
     <div class="header">
@@ -76,6 +93,11 @@
     <main>
         {% for word in words %}
         <div class="words" onclick="changeWord(this)"> 
+            <p> {{word}} </p><img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas"> 
+        </div>
+        {% endfor %}
+        {% for word in new_words %}
+        <div class="words new_words" onclick="changeWord(this)"> 
             <p> {{word}} </p><img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas"> 
         </div>
         {% endfor %}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/morph/bootstrap.min.css"
+          rel="stylesheet"
+          crossorigin="anonymous">
+
+    <!-- Custom Style CSS -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/base_template.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courier+Prime&family=Inter:wght@800&family=Martian+Mono:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>{% block title %}Base Template{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% block header %} {% endblock %}
+
+</head>
+<body>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages|reverse %}
+
+            <div id="flashModal{{ loop.index }}" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            {% if category == 'error' %}
+                                <h5 class="modal-title">Figyelem!</h5>
+                            {% else %}
+                                <h5 class="modal-title">Információ</h5>
+                            {% endif %}
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ message }}</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button id="btn_ok_1" type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(window).on('load', function() {
+                    let modal = new bootstrap.Modal('#flashModal{{ loop.index }}')
+                    modal.show()
+                });
+
+                $("#btn_ok_1").click(function (e) {
+                        window.location.href = '{{ url_for( 'views.landing_page') }}';
+                })
+            </script>
+
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<!-- Bootstrap JavaScript -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+
+</body>
+</html>

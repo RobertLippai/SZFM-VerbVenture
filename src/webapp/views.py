@@ -2,6 +2,7 @@
 # ex. landing page, dictionary etc...
 from flask import Blueprint, jsonify, render_template
 from flask_login import current_user, login_required
+from flask import Blueprint, jsonify, render_template, flash, request
 
 from webapp.progress_handler import calculate_scores, get_grade
 
@@ -57,17 +58,62 @@ def download_data():
 @views.route("/word_cards")
 @login_required
 def word_cards():
-    words = ["dog", "you", "did", "yes", "but", "never", "far", "apple"]
-    return render_template("szokartya.html", user=current_user, words=words)
-
+    translations = {
+        "cat": "macska",
+        "dog": "kutya",
+        "you": "te",
+        "did": "csinálta",
+        "yes": "igen",
+        "never": "soha",
+        "far": "messze",
+        "apple": "alma"
+    }
+    new_translations = {
+        "mouse": "egér",
+        "blue": "kék",
+        "picture": "kép",
+        "browser": "kereső",
+        "question": "kérdés",
+        "pen": "toll",
+        "purple": "lila",
+        "plant": "növény",
+    }
+    return render_template("szokartya.html", user=current_user, words=translations.keys(), translations=translations, new_words=new_translations.keys(), new_translations=new_translations)
 @views.route("/words_pair")
 @login_required
 def words_pair():
     leftWords = ["kutya", "láb", "betű", "háború", "víz", "ló", "állat", "igazság"]
     rightWords = ["dog", "leg", "word", "war", "water", "horse", "animal", "truth"]
+    correctPairs = [
+        {"left": "kutya", "right": "dog"},
+        {"left": "láb", "right": "leg"},
+        {"left": "betű", "right": "word"},
+        {"left": "háború", "right": "war"},
+        {"left": "víz", "right": "water"},
+        {"left": "ló", "right": "horse"},
+        {"left": "állat", "right": "animal"},
+        {"left": "igazság", "right": "truth"}
+    ]
+    new_leftWords = ["növény", "asztal", "üveg", "napszemüveg", "egér", "kép", "toll", "lila"]
+    new_rightWords = ["table", "purple", "glass", "plan", "mouse", "sunglass", "picture", "pen"]
+    new_correctPairs = [
+        {"left": "növény", "right": "plan"},
+        {"left": "asztal", "right": "table"},
+        {"left": "üveg", "right": "glass"},
+        {"left": "napszemüveg", "right": "sunglass"},
+        {"left": "egér", "right": "mouse"},
+        {"left": "kép", "right": "picture"},
+        {"left": "toll", "right": "pen"},
+        {"left": "lila", "right": "purple"}
+    ]
 
-    return render_template('szoparosit.html',user=current_user, leftWords=leftWords, rightWords=rightWords)
+    return render_template('szoparosit.html', user=current_user, leftWords=leftWords, rightWords=rightWords, correctPairs=correctPairs, new_leftWords=new_leftWords, new_rightWords=new_rightWords, new_correctPairs=new_correctPairs)
 
+@views.route("/pop_up")
+@login_required
+def popup():
+    flash(request.args.get('text'), 'succes')
+    return render_template('popup_window.html', user=current_user)
 @views.route("/complete_it")
 @login_required
 def complete_it():
