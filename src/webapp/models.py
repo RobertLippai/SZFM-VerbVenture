@@ -22,5 +22,5 @@ class Word(db.Model):
         return {
             'id': self.id,
             'english_word': self.english_word,
-            'hunarian_word': self.hungarian_word,
+            'hungarian_word': self.hungarian_word,
         }

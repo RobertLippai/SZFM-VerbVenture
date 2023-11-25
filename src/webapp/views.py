@@ -1,7 +1,6 @@
 # We will place the endpoints here
 # ex. landing page, dictionary etc...
 from sqlite3 import IntegrityError
-from flask import Blueprint, jsonify, render_template
 from flask_login import current_user, login_required
 from flask import Blueprint, jsonify, render_template, flash, request
 
@@ -133,16 +132,6 @@ def popup(text, game, wonpoints, tries):
 def complete_it():
     return render_template('complete_it.html', user=current_user)
 
-
-from .fill_db import fill_word_table, query_word_table
-
-
-@views.route("/fillWordTable")
-def filll():
-    fill_word_table(db, Word)
-    return "ok"
-
-
 @views.route("/dropWordTable")
 def dropT():
     Word.__table__.drop(db.engine)
@@ -170,23 +159,20 @@ def add_word(eng, hun):
 @login_required
 def getWords():
     words = Word.query.all()
-    for word in words:
-        print(word.english_word + " " + word.hungarian_word)
 
-    return jsonify(w=[word.serialize() for word in words])
+    return jsonify([word.serialize() for word in words])
 
 
 @views.route("/getWords/<filterBy>")
 @login_required
-def getWordByEng(filterBy):
-    words = Word.query.filter_by(
-        english_word=filterBy
+def getWordsByFilter(filterBy):
+
+    words = Word.query.filter(
+        (Word.english_word.ilike(f"%{filterBy}%")) |
+        (Word.hungarian_word.ilike(f"%{filterBy}%"))
     ).all()
 
-    for word in words:
-        print(word.english_word + " " + word.hungarian_word)
-
-    return jsonify(w=[word.serialize() for word in words])
+    return jsonify([word.serialize() for word in words])
 
 
 @views.route("/dictionary")
