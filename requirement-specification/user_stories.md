@@ -118,15 +118,35 @@ asd
 # Egészítsd ki
 ![Progress page Page](img/Fill.jpg)
 
-asd
+Józsi bácsi elég fáradtan érzi magát, de azért nem akarja ma se elhalasztani az angol nyelv tanulását. "Bár lenne egy kissé könnyebb feladattípus, amivel azért mégis gyakorolhatnék egy kicsit!" — gondolja.
+
+Ekkor eszébe jut, hogy van még pár feladattípus, amit ki se próbált. Előveszi telefonját, megnyitja a VerbVenture alkalmazást, és kiváncsian nézi végig az eddig nem ellenőrzött feladattípusok neveit.
+
+Rövid gondolkodás után meglátja a szituációhoz illő feladatot: egészítsd ki. Józsi bácsi rányom az általa könnyűnek érzett feladatra, és örömmel látja, hogy pont olyan feladat tárul elé, mint remélte: egy egyszerű mondatkiegészítés, négy lehetőség felajánlásával. Felül egy angol mondat jelenik meg, melyből hiányzik egy részlet. Alatta 4 gomb jelzi lehetőségeit a továbbhaladásra.
+
+Rányom az egyik gombra, és örömmel látja, hogy az zölden felvillan, majd továbblép egy új feladványra. A következő mondat azonban kicsit nehéz, és sajnos Józsi bácsi rosszul tippel. Örömmel látja azonban, hogy bár téves választ adott, a kérdés nem lép tovább, szimplán pirosan felvillan a rossz válasz, és az alkalmazás lehetőséget kínál számára a helyes válasz kiválasztására.
+
+Józsi bácsi lefekvés előtt még hosszasan fejlesztette angol tudását a mondatkiegészítés feladattal.
 
 # Szókirakó
 ![Progress page Page](img/Puzzle.jpg)
 
-asd
+Józsi bácsi legfiatalabb unokái váratlanul látogatóba jönnek hozzá. Nem készült meglepetéssel, így eltűnődik, mivel kéne legkötni a kicsik figyelmét.
+
+Eszébe jut, hogy a VerbVenture alkalmazásban nem csak kemény nyelvfeladatok, hanem képfelismerő, játékos kérdések is vannak. "Remek" — gondolja — "így a kicsit szórakozhatnak, és közben én is tovább fejleszthetem angol tudásomat!"
+
+Betölti a VerbVenture alkalmazást, és rányom a szókirakó menüpontra. Felül egy kép jelenik meg, alatta pedig a szó hossza, és néhány betű, melyek között szerepelnek a képen szereplő dolog nevét alkotó betűk is.
+
+A betöltött képet megmutatja unokáinak, akik felismerik a képet, majd Józsi bácsi befejezi a feladatot azzal, hogy angolra fordítja a tippjüket, segítségül hívva a betűket és a szóhosszt jelképező vonalakat. 
 
 # Listening
 ![Progress page Page](img/Listening.jpg)
 
-asd
+Józsi bácsi tudja, hogy hallása már nem régi, ezért kiemelkedő fontosságot élvez a nála a hallás utáni helyes szövegértés fejlesztése. Egy fülorvostól való vizit után józsi bácsi beül kocsijába, és céltudatosan készíti elő telefonján a már jól ismert VerbVenture alkalmazást.
+
+Bejelentkezik, majd ránavigál a Listening menüpontra. Tudja, hogy ha angolul menni fog a hallás utáni szövegértés, akkor magyarul se lesz túl nagy probléma.
+
+A felül megjelenő gombra nyomva az alkalmazás lejátszik számára egy rövid szöveget, amit józsi bácsi elkezd begépelni a gomb alatti szövegdobozba. Sok időt tölt a listening feladatban, több szöveget is kipróbál, meghallgat, miközben a szövegek nyelvezete egyre nehezedik.
+
+Az idő múlásával azonban megnő a parkoló autóját körülvevő forgalom, így a hangos kocsizajtól Józsi bácsi nehezen érti a feladatot. Elhatározza, hogy inkább hazamegy, és otthon gyakorol tovább.
 
