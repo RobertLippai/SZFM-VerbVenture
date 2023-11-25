@@ -141,7 +141,7 @@ function playAudio(index, isNew) {
     </div>
     </div>
     <main>
-        <div class="backtop"><div class="back"><p>vissza</p></div></div>
+        <div class="backtop"><button class="back">Vissza</button></div>
         {% for word in words %}
         <div class="words givesscore" onclick="changeWord(this, event)" data-hang="hang{{ loop.index }}.mp3">
             <p> {{word}} </p>
@@ -158,7 +158,7 @@ function playAudio(index, isNew) {
         {% endfor %}
         <div class="footer">
             <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
-            <button class="next"><p>Tovább</p></button>
+            <button class="next">Tovább</button>
         </div>
     </main>
 
