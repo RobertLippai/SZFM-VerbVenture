@@ -108,7 +108,17 @@ Eredményére oly büszke, hogy rányom a nyomtatás menüpontra, és el is kül
 # Szópárosítás
 ![Progress page Page](img/Pairs.jpg)
 
-asd
+Józsi bácsinak hivatalos dolga akadt egy kormányablaknál, de oda megérkezve nagy sor fogadta. Sebaj, most, hogy jártas VerbVenture™ felhasználó lett, nem zavarják az efféle fennakadások.
+
+Előveszi hát telefonját, és megnyitja kedvenc angol nyelvtanuló alkalmazását.
+
+A helyzetből eredően nem szeretne hallásra vagy beszédre fókuszáló feladatokat végezni, ezért inkább rányom a Szópárosítás menőpontra.
+
+Elétárul 10-10 szó, bal oldalt magyar, jobb oldalt angol megfelelőkkel. Feladata egyszerű: a bal és jobb oldalak párosítása. Helytelen párosítás esetén a szó visszaugrik kezdő helyére, helyes párosítás esetén viszont a párok összetapadnak, így Józsi bácsi könnyen átlátja, hol tart az adott feladatban.
+
+Miután minden szót megfelelően párosított, a tovább gombbal új szavakat kérhet.
+
+Így játszva elrepült a komrányablaknál szükséges 16 órás várakozás.
 
 # Szókártyák
 ![Progress page Page](img/Cards.jpg)
