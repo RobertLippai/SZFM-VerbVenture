@@ -13,20 +13,21 @@
     let wonpointscounter = 0;
     let triescounter = 0;
 
-    function changeWord(element) {
+    function changeWord(element, event) {
+        console.log(event.target)
+
+        if (event.target.classList.contains("speak")) {
+            return;
+        }
+
+
         //Give Score if clicked first
         if (element.classList.contains("givesscore")) {
             wonpointscounter++;
             element.classList.remove("givesscore");
         }
     
-    
-    
-    
-    
-    
-    
-    
+
         console.log("clicked");
 
         var pElement = element.querySelector('p');
@@ -47,7 +48,7 @@
                 }
             }
         }
-    }   
+    }
     document.addEventListener('DOMContentLoaded', function() {
     const elorehaladasElem = document.querySelector('.elorehaladas');
     const nextButton = document.querySelector('.next');
@@ -142,16 +143,16 @@ function playAudio(index, isNew) {
     <main>
         <div class="backtop"><div class="back"><p>vissza</p></div></div>
         {% for word in words %}
-        <div class="words givesscore" onclick="changeWord(this)" data-hang="hang{{ loop.index }}.mp3"> 
+        <div class="words givesscore" onclick="changeWord(this, event)" data-hang="hang{{ loop.index }}.mp3">
             <p> {{word}} </p>
-            <img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas" onclick="playAudio({{ loop.index }}, false)"> 
+            <img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas" onclick="playAudio({{ loop.index }}, false)" class="speak">
             <audio id="audio{{ loop.index | string }}" src="{{ url_for('static', filename='voices/hang/hang' + loop.index | string + '.mp3') }}"></audio>
         </div>
         {% endfor %}
         {% for word in new_words %}
-        <div class="words new_words givesscore" onclick="changeWord(this)" data-hang="new_hang{{ loop.index }}.mp3"> 
+        <div class="words new_words givesscore" onclick="changeWord(this, event)" data-hang="new_hang{{ loop.index }}.mp3">
             <p> {{word}} </p>
-            <img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas" onclick="playAudio({{ loop.index }}, true)"> 
+            <img src="{{ url_for('static', filename='img/speaker.png') }}" alt="felolvasás" title="felolvas" onclick="playAudio({{ loop.index }}, true)" class="speak">
             <audio id="new_audio{{ loop.index | string  }}" src="{{ url_for('static', filename='voices/new_hang/hang' + loop.index | string + '.mp3') }}"></audio>
         </div>
         {% endfor %}
