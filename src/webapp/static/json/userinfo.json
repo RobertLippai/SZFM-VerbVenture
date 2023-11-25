@@ -70,18 +70,18 @@
   {
     "userName": "pastiltest",
     "scores": {
-      "Szokirako": 10,
-      "Szokartyak": 20,
-      "EgeszitsdKi": 30,
-      "Listening": 30,
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
       "Szoparositas": 32
     },
     "tries": {
-      "Szokirako": 12,
-      "Szokartyak": 30,
-      "EgeszitsdKi": 42,
-      "Listening": 100,
-      "Szoparositas": 64
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 42
     }
   },
   {

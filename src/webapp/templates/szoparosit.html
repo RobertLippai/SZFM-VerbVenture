@@ -9,186 +9,15 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {% include 'embeddables/_dynamic_background.html' %}
 
-<!--<script>
-    var correctPairs = JSON.parse('{{ correctPairs | tojson | safe }}');
-    let correctWords = 0;
-   document.addEventListener("DOMContentLoaded", function () {
-
-
-    
-    // Bal oldali szavak eseménykezelők hozzáadása
-    var leftWords = document.querySelectorAll('.leftWord');
-    
-    leftWords.forEach(function (word) {
-        word.addEventListener('dragstart', function (e) {
-            e.dataTransfer.setData('text/plain', word.outerHTML);
-        });
-    });
-
-    // Jobb oldali rész eseménykezelők hozzáadása
-    var rightSideList = document.querySelectorAll('.rightWords');
-    var rightSideArray = Array.from(rightSideList);
-
-    rightSideArray.forEach(function (rightSide) {
-        rightSide.addEventListener('dragover', function (e) {
-            e.preventDefault();
-        });
-
-        rightSide.addEventListener('drop', function (e) {
-            e.preventDefault();
-            if (rightSide.children.length < 2) {
-            var draggedWordHTML = e.dataTransfer.getData('text/plain');
-            var rightWordContainer = document.createElement('div');
-            rightWordContainer.classList.add('rightWord');
-            rightWordContainer.innerHTML = draggedWordHTML;
-
-            // Háttérszín és backdropFilter beállítása
-            // rightWordContainer.style.backgroundColor = '#00000000'; // vagy a háttérszín értékét, amit be szeretnél állítani
-            rightWordContainer.style.backdropFilter = 'none'; // vagy a backdropFilter értékét, amit be szeretnél állítani
-
-            rightSide.appendChild(rightWordContainer);
-
-            var rightWordsContent = Array.from(rightSide.children).map(function (child) {
-                return child.innerText;
-            });
-
-            // Ellenőrzés a correctPairs alapján
-            if (rightWordsContent.length >= 2) {
-                var isPairCorrect = correctPairs.some(function (pair) {
-                    return (
-                        rightWordsContent.includes(pair.right) &&
-                        rightWordsContent.includes(pair.left)
-
-                        
-                    );
-                    console.log(pair.left);
-                });
-
-                if (isPairCorrect) {
-                    rightSide.querySelectorAll('.rightWord').forEach(function (correctPairElement) {
-                        correctPairElement.style.transition = 'background-color 1s ease';
-                        correctPairElement.style.backgroundColor = '#00FF00';
-                    });
-
-                    setTimeout(function () {
-                        rightSide.querySelectorAll('.rightWord').forEach(function (correctPairElement) {
-                            correctPairElement.style.backgroundColor = '';
-                        });
-
-                        leftWords.forEach(function (word) {
-                            if (rightWordsContent.includes(word.innerText)) {
-                                word.style.display = 'none';
-                                
-                            }
-                        });
-                    }, 800);
-        correctWords += 1;
-        if(correctWords == 8){
-            handleNextButtonClick();
-        }
-        console.log('A szópár helyes!');
-        console.log(correctWords);
-                
-    } else {
-
-        rightWordContainer.style.transition = 'background-color 1s ease';
-        rightWordContainer.style.backgroundColor = '#FF0000';
-   
-        setTimeout(function () {
-            rightWordContainer.style.backgroundColor = '';
-            var originalWord = Array.from(leftWords).find(function (word) {
-                return word.innerText.includes(rightWordContainer.innerText);
-            });
-            originalWord.style.display = 'block';
-        }, 1500);
-        setTimeout(function () {
-            rightWordContainer.remove(); 
-        }, 2000);
-        console.log(rightWordsContent)
-        console.log("szópár helytelen");
-    }
-}
-
-        };
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Itt helyezd el az elemkiválasztást
-    const elorehaladasElem = document.querySelector('.elorehaladas');
-    const nextButton = document.querySelector('.next');
-
-    let progress = 0;
-    let isFirstClick = 0;
-    let correctWords = 0;
-
-    console.log(correctWords);
-
-
-nextButton.addEventListener('click', function () {
- 
-            if (correctWords === 8) {
-                nextButton.addEventListener('click', handleNextButtonClick);
-            }
-        })
-    });
-
-    });
-
-function handleNextButtonClick() {
-    isFirstClick += 1;
-    progress += 50;
-
-    if (progress > 100) {
-        progress = 100;
-    }
-
-    elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
-
-    correctPairs = JSON.parse('{{ new_correctPairs | tojson | safe }}');
-
-    if (isFirstClick == 0){
-            // Az első kattintásra az összes '.words' elem kiválasztása és a stílusok alkalmazása
-            document.querySelectorAll('.leftSide').forEach(function(word) {
-                word.style.display = 'flex';
-            });
-            document.querySelectorAll('.rightSide').forEach(function(word) {
-                word.style.display = 'flex';
-            });
-            // Az első kattintásra az összes '.new_words' elem kiválasztása és a stílusok alkalmazása
-            document.querySelectorAll('.new_leftSide').forEach(function(newWord) {
-                newWord.style.display = 'none';
-            });
-            document.querySelectorAll('.new_rightSide').forEach(function(newWord) {
-                newWord.style.display = 'none';
-            });
-        } if (isFirstClick == 1) {
-            document.querySelectorAll('.leftSide').forEach(function(word) {
-                word.style.display = 'none';
-            });
-            document.querySelectorAll('.rightSide').forEach(function(word) {
-                word.style.display = 'none';
-            });
-    
-
-            document.querySelectorAll('.new_leftSide').forEach(function(newWord) {
-                newWord.style.display = 'flex';
-            });
-            document.querySelectorAll('.new_rightSide').forEach(function(newWord) {
-                newWord.style.display = 'flex';
-            });
-        } if (isFirstClick == 2) {
-            window.location.href = '{{ url_for( 'views.popup', text="ügyi vagy gec") }}';
-        }
-
-}
-
-</script>-->
-
 <script>
-    var correctPairs = JSON.parse('{{ correctPairs | tojson | safe }}');
-    let correctWords = 0;
+    let wonpointscounter = 0;
+    let triescounter = 0;
+
+
+   var correctPairs = JSON.parse('{{ correctPairs | tojson | safe }}');
+   let correctWords = 0;
    document.addEventListener("DOMContentLoaded", function () {
+   
 
 
     
@@ -260,6 +89,8 @@ function handleNextButtonClick() {
                     }, 800);
         correctWords += 1;
         console.log('A szópár helyes!');
+        wonpointscounter++;
+        triescounter++;
         if(correctWords == 8){
 
     const elorehaladasElem = document.querySelector('.elorehaladas');
@@ -314,7 +145,10 @@ function handleNextButtonClick() {
                 newWord.style.display = 'flex';
             });
         } if (isFirstClick == 2 && correctWords == 8) {
-            window.location.href = '{{ url_for( 'views.popup', text="ügyi vagy gec") }}';
+            let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Szoparositas', wonpoints='__won__', tries='__tries__') }}";
+            url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
+            
+            window.location.href = url;
         }
         correctWords = 0;
     });
@@ -339,13 +173,14 @@ function handleNextButtonClick() {
         }, 2000);
         console.log(rightWordsContent)
         console.log("szópár helytelen");
+        triescounter++;
     }
 }
 
         };
     });
 });
-   });
+});
 
 
 

@@ -105,3 +105,28 @@ Józsi bácsi elvégez egy pár feladatot, majd izgalommal tér vissza az előre
 
 Eredményére oly büszke, hogy rányom a nyomtatás menüpontra, és el is küldi unokájának, milyen sokat fejlődött idegen nyelvi tudása.
 
+# Szópárosítás
+![Progress page Page](img/Pairs.jpg)
+
+asd
+
+# Szókártyák
+![Progress page Page](img/Cards.jpg)
+
+asd
+
+# Egészítsd ki
+![Progress page Page](img/Fill.jpg)
+
+asd
+
+# Szókirakó
+![Progress page Page](img/Puzzle.jpg)
+
+asd
+
+# Listening
+![Progress page Page](img/Listening.jpg)
+
+asd
+

@@ -5,7 +5,7 @@ from flask import Blueprint, jsonify, render_template
 from flask_login import current_user, login_required
 from flask import Blueprint, jsonify, render_template, flash, request
 
-from webapp.progress_handler import calculate_scores, get_grade
+from webapp.progress_handler import calculate_scores, get_grade, update_score_of_user_of_game
 from .models import Word
 from . import db  # imports from __init__.py
 import json
@@ -90,12 +90,12 @@ def word_cards():
 @views.route("/words_pair")
 @login_required
 def words_pair():
-    leftWords = ["kutya", "láb", "betű", "háború", "víz", "ló", "állat", "igazság"]
+    leftWords = ["állat", "igazság", "szó", "víz", "háború", "ló", "kutya", "láb"]
     rightWords = ["dog", "leg", "word", "war", "water", "horse", "animal", "truth"]
     correctPairs = [
         {"left": "kutya", "right": "dog"},
         {"left": "láb", "right": "leg"},
-        {"left": "betű", "right": "word"},
+        {"left": "szó", "right": "word"},
         {"left": "háború", "right": "war"},
         {"left": "víz", "right": "water"},
         {"left": "ló", "right": "horse"},
@@ -103,12 +103,12 @@ def words_pair():
         {"left": "igazság", "right": "truth"}
     ]
     new_leftWords = ["növény", "asztal", "üveg", "napszemüveg", "egér", "kép", "toll", "lila"]
-    new_rightWords = ["table", "purple", "glass", "plan", "mouse", "sunglass", "picture", "pen"]
+    new_rightWords = ["table", "purple", "glass", "plant", "mouse", "sunglasses", "picture", "pen"]
     new_correctPairs = [
-        {"left": "növény", "right": "plan"},
+        {"left": "növény", "right": "plant"},
         {"left": "asztal", "right": "table"},
         {"left": "üveg", "right": "glass"},
-        {"left": "napszemüveg", "right": "sunglass"},
+        {"left": "napszemüveg", "right": "sunglasses"},
         {"left": "egér", "right": "mouse"},
         {"left": "kép", "right": "picture"},
         {"left": "toll", "right": "pen"},
@@ -119,11 +119,15 @@ def words_pair():
     return render_template('szoparosit.html', user=current_user, leftWords=leftWords, rightWords=rightWords, correctPairs=correctPairs, new_leftWords=new_leftWords, new_rightWords=new_rightWords, new_correctPairs=new_correctPairs)
 
 
-@views.route("/pop_up")
+@views.route("/pop_up/<string:text>/<string:game>/<string:wonpoints>/<string:tries>")
 @login_required
-def popup():
-    flash(request.args.get('text'), 'succes')
+def popup(text, game, wonpoints, tries):
+    print("args ==================", text, game, wonpoints, tries)
+    flash(text, 'succes')
+    update_score_of_user_of_game(username=current_user.username, game=game, wonpoints=int(wonpoints), tries=int(tries))
     return render_template('popup_window.html', user=current_user)
+    
+    
 @views.route("/complete_it")
 @login_required
 def complete_it():

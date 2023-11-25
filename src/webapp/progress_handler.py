@@ -99,7 +99,19 @@ def roundnumbers(numberlist):
     for number in numberlist:
         roundnumberlist.append(int(number * 100))
     return roundnumberlist
+    
+    
+def update_score_of_user_of_game(username, game, wonpoints, tries):
+    userdata = fetch_data()
+    for entry in userdata:
+        if username == entry["userName"]:
+            entry["scores"][game] += wonpoints
+            entry["tries"][game] += tries
+    with open(
+        os.path.join(progress_handler.root_path, "static/json/userinfo.json"), "w+"
+    ) as f:
+        json.dump(userdata, f, indent=2)
 
 
 if __name__ == "__main__":
-    print(calculate_scores("Bela"))
+    update_score_of_user_of_game("pastiltest", "Szokartyak", 100, 100)
