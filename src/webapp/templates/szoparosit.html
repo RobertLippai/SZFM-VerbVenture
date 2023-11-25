@@ -26,7 +26,7 @@
     
     leftWords.forEach(function (word) {
         word.addEventListener('dragstart', function (e) {
-            e.dataTransfer.setData('text/plain', word.outerHTML);
+            e.dataTransfer.setData('text/html', word.outerHTML);
         });
     });
 
@@ -42,10 +42,10 @@
         rightSide.addEventListener('drop', function (e) {
             e.preventDefault();
             if (rightSide.children.length < 2) {
-            var draggedWordHTML = e.dataTransfer.getData('text/plain');
+            var draggedWordHTML = e.dataTransfer.getData('text/html');
             var rightWordContainer = document.createElement('div');
             rightWordContainer.classList.add('rightWord');
-            rightWordContainer.innerHTML = draggedWordHTML;
+            rightWordContainer.innerHTML = draggedWordHTML.match(/<p>.*<\/p>/);
 
             // Háttérszín és backdropFilter beállítása
             // rightWordContainer.style.backgroundColor = '#00000000'; // vagy a háttérszín értékét, amit be szeretnél állítani
