@@ -18,7 +18,7 @@ VerbVenture is a web application for beginner english speakers to study and prac
 - Word pairing
 - Filling out the missing word(s) from a sentence
 - Puzzle
-- Praciting with word cards
+- Practicing with word cards
 
 ## Used technology
 
