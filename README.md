@@ -1,5 +1,29 @@
 # VerbVenture - English learning webapp
 
+## Information
+
+VerbVenture is a web application for beginner english speakers to study and practice. It has a wide array of different exercises, and lets people keep track of their progress dynamically.
+
+## Features
+
+- Account registration
+- Progress tracking (exportable into a JSON)
+- A dictionary of words
+- Customizable background
+- A clock to keep track of time while studying :)
+
+## Exercises
+
+- Listening
+- Word pairing
+- Filling out the missing word(s) from a sentence
+- Puzzle
+- Praciting with word cards
+
+## Used technology
+
+The application uses the flask framework. In the code, it uses mostly Python and JavaScript. For the design it uses HTML, CSS, with some bootstrap functionalities.
+
 ## Getting Started
 
 ### Prerequisites
