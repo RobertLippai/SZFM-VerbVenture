@@ -11,7 +11,7 @@ def initialize_database():
     predefined_categories = [
         {"english_name": "empty", "hungarian_name": "üres"},
         {"english_name": "color", "hungarian_name": "szín"},
-        {"english_name": "greeting", "hungarian_name": "köszöntés"},
+        {"english_name": "greeting", "hungarian_name": "köszönés"},
         {"english_name": "food", "hungarian_name": "étel"},
         {"english_name": "animal", "hungarian_name": "állat"},
         {"english_name": "season", "hungarian_name": "évszak"},
@@ -78,7 +78,7 @@ def initialize_database():
         {"english_word": "apple", "hungarian_word": "alma", "category_name": "food"},
         {"english_word": "elephant", "hungarian_word": "elefánt", "category_name": "animal"},
         {"english_word": "blue", "hungarian_word": "kék", "category_name": "color"},
-        {"english_word": "thanks", "hungarian_word": "köszönöm", "category_name": "greeting"},
+        {"english_word": "thanks", "hungarian_word": "köszönöm"},
         {"english_word": "pasta", "hungarian_word": "tészta", "category_name": "food"},
         {"english_word": "sunflower", "hungarian_word": "napraforgó", "category_name": "nature"},
         {"english_word": "yellow", "hungarian_word": "sárga", "category_name": "color"},

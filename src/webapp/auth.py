@@ -41,9 +41,9 @@ def login():
                     url_for("views.landing_page")
                 )  # blueprint.function name
             else:
-                flash("Helytelen jelszó, próbáld újra!", category="error")
+                flash("Hibás felhasználónév vagy jelszó!", category="error")
         else:
-            flash("Nincs ilyen felhasználó regisztrálva!", category="error")
+            flash("Hibás felhasználónév vagy jelszó!", category="error")
 
     return render_template("login.html")
 

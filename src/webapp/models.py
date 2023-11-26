@@ -21,13 +21,13 @@ class Word(db.Model):
         db.UniqueConstraint('english_word', 'hungarian_word', name='unique_commit'),
     )
 
-    def serialize(self, filter):
+    def serialize(self, filter=""):
         return {
             'id': self.id,
             'english_word': self.english_word,
             'hungarian_word': self.hungarian_word,
             'category': self.category_name,
-            'matched_by_category': filter.lower() in [self.category.english_name.lower(), self.category.hungarian_name.lower()] if self.category else False,
+            'matched_by_category': filter.lower() in [self.category.english_name.lower(), self.category.hungarian_name.lower()] if self.category else False
         }
 
 class Category(db.Model):
