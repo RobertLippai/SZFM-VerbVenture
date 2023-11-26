@@ -173,3 +173,8 @@ h1 {
     font-weight: bold;
     text-transform: capitalize;
 }
+.word-card.matched-by-category {
+    background-color: rgba(168, 241, 255, 0.52);
+    border: 1px solid rgba(0, 51, 255, 0.65);
+    color: #ffffff;
+}

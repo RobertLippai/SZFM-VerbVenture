@@ -1,3 +1,5 @@
+import time
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -26,13 +28,15 @@ def create_app():
     app.register_blueprint(settings, url_prefix='/')
     app.register_blueprint(init_blueprint, url_prefix='/')
 
-    from .models import User, Word #  relative import
+    from .models import User, Word, Category #  relative import
     from .fill_db import initialize_database
 
     with app.app_context():
         db.create_all()
-        if not Word.query.first():
-            initialize_database()
+        Category.__table__.drop(db.engine)
+        Word.__table__.drop(db.engine)
+        time.sleep(2)
+        initialize_database()
 
     login_manager = LoginManager()
     # Where to redirect the user if he isn't logged in
