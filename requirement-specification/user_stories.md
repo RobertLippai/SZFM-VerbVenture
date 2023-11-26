@@ -160,3 +160,23 @@ A felül megjelenő gombra nyomva az alkalmazás lejátszik számára egy rövid
 
 Az idő múlásával azonban megnő a parkoló autóját körülvevő forgalom, így a hangos kocsizajtól Józsi bácsi nehezen érti a feladatot. Elhatározza, hogy inkább hazamegy, és otthon gyakorol tovább.
 
+# Szótár 1
+![Progress page Page](img/Dict.jpg)
+
+Józsi bácsi, miután sikeresen regisztrált a VerbVenture alkalmazásban, elérkezettnek érzi az időt, hogy kipróbálja az alkalmazás szótár funkcióját. Az unokája hamarosan érkezik, és Józsi bácsi szeretne pár kifejezést megtanulni, hogy meglepje vele.
+
+Felveszi a szemüvegét, előveszi a telefonját, majd rányom a főmenüben található "Szótár" opcióra. Egy egyszerű és felhasználóbarát keresőmező tárul elé, ahol már az első betűk beírásával megjelennek a lehetséges találatok.
+
+Józsi bácsi a keresést köszönésekkel kezdi, magyarul begépel párféle köszöntést. (Pl. Szia, Jó Reggelt, Örülök, hogy látlak.) Ahogy gépel, az alkalmazás már dinamikusan mutatja is a lehetséges találatokat, mind angol mind magyar nyelven. A találatok kis kártyákon jelennek meg, amin látható a szó angol és magyar megfelelő.
+
+Most már felkészült arra, hogy az unokáját angol köszöntéssel fogadja, és alig várja, hogy bemutassa az újonnan szerzett tudását.
+
+# Szótár 2
+![Progress page Page](img/Dict.jpg)
+
+Józsi bácsi éppen egy angol könyvet olvas, amikor ráakad egy olyan szóra, aminek a jelentését nem ismeri. Nem hagyja azonban annyiban a dolgot, azonnal előveszi telefonját, és megnyitja a VerbVenture alkalmazást.
+
+A főmenüből kiválasztja a Szótár menüpontot, majd elkezdi begépelni a számára ismeretlen szót. Ahogy gépel, az alkalmazás már dinamikusan megmutatja a lehetséges találatokat, mind angol mind magyar nyelven. A találatok kis kártyákon jelennek meg, amin látható a szó angol és magyar megfelelő.
+
+Miután megtudta, hogy mit jelent a szó Józsi bácsi elrakja a telefonját, és folytatja az olvasást, most már nagyjából teljesen értve a mondatot.
+
