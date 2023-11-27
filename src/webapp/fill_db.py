@@ -40,7 +40,7 @@ def initialize_database():
 
         {"english_word": "leaf", "hungarian_word": "levél", "category_name": "autumn"},
         {"english_word": "harvest", "hungarian_word": "aratás", "category_name": "autumn"},
-        {"english_word": "harvest", "hungarian_word": "ősz (UK)", "category_name": "autumn"},
+        {"english_word": "harvest (UK)", "hungarian_word": "ősz (UK)", "category_name": "autumn"},
         {"english_word": "pumpkin", "hungarian_word": "tök", "category_name": "autumn"},
         {"english_word": "sweater", "hungarian_word": "pulóver", "category_name": "autumn"},
         {"english_word": "cool", "hungarian_word": "hűvös", "category_name": "autumn"},

@@ -31,10 +31,13 @@
             area.style.transition = 'background-color 1s ease';
             area.style.backgroundColor = '#00FF00';
             jovalasz=true;
+            triescounter++;
+            wonpointscounter++;
         } else {
             area.style.transition = 'background-color 1s ease';
             area.style.backgroundColor = '#FF0000';
             jovalasz=false;
+            triescounter++;
             setTimeout(function () {
                 area.style.backgroundColor = '';
             }, 1500);
@@ -48,7 +51,6 @@
 
     nextButton.addEventListener('click', function() {
         
-        triescounter += 8;
         if(jovalasz==true){
         isFirstClick += 1;
         progress += 100;
@@ -60,20 +62,24 @@
 
         elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
 
-        
+        console.log(triescounter)
+        console.log(wonpointscounter)
     if (isFirstClick == 1) {
+        console.log(triescounter)
+        console.log(wonpointscounter)
         /*document.getElementById("writeing").value="";
         jovalasz="false";
         document.getElementById("writeing").style.backgroundColor="";
         */
-        let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Szokartyak', wonpoints='__won__', tries='__tries__') }}";
+        let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Listening', wonpoints='__won__', tries='__tries__') }}";
         url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
         window.location.href = url;
     } if (isFirstClick == 2) {
-    /*let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Szokartyak', wonpoints='__won__', tries='__tries__') }}";
-    url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);*/
-    
-    
+        console.log(triescounter)
+        console.log(wonpointscounter)
+        let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Listening', wonpoints='__won__', tries='__tries__') }}";
+        url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
+        window.location.href = url;
 
 
 }

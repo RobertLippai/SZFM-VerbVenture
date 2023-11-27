@@ -50,10 +50,13 @@
     nextButton.addEventListener('click', function() {
         console.log(joValasz)
         console.log(isFirstClick)
-        triescounter += 8;
         if(joValasz==true){
         isFirstClick += 1;
         progress += 50;
+        wonpointscounter++;
+        triescounter++;
+        } else {
+            triescounter++;
         }
         // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
         if (progress > 100) {
@@ -86,7 +89,7 @@
             answer.style.display = 'flex';
             joValasz=false
     } if (isFirstClick == 2) {
-    let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Egeszitsd ki', wonpoints='__won__', tries='__tries__') }}";
+    let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='EgeszitsdKi', wonpoints='__won__', tries='__tries__') }}";
     url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
     
     window.location.href = url;
