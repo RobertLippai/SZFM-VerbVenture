@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     const wordElement = document.createElement("div");
                     wordElement.textContent = word.english_word + " - " + word.hungarian_word;
                     wordElement.classList.add("word-card");
+
+                    // Check if the word was matched by category
+                    if (word.matched_by_category) {
+                        wordElement.classList.add("matched-by-category");
+                    }
+
                     wordElement.addEventListener("click", () => {
                         console.log("Clicked on word: " + word.english_word);
                     });

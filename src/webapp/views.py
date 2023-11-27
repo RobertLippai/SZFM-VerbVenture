@@ -6,7 +6,7 @@ from flask_login import current_user, login_required
 from flask import Blueprint, jsonify, render_template, flash, request
 
 from webapp.progress_handler import calculate_scores, get_grade, update_score_of_user_of_game
-from .models import Word
+from .models import Word, Category
 from . import db  # imports from __init__.py
 import json
 from sqlalchemy import exc, func
@@ -164,13 +164,15 @@ def getWords():
 @views.route("/getWords/<filterBy>")
 @login_required
 def getWordsByFilter(filterBy):
-
-    words = Word.query.filter(
+    filterBy = filterBy.lower()
+    words = Word.query.join(Category).filter(
         (Word.english_word.ilike(f"%{filterBy}%")) |
-        (Word.hungarian_word.ilike(f"%{filterBy}%"))
+        (Word.hungarian_word.ilike(f"%{filterBy}%")) |
+        (Category.english_name == filterBy) |
+        (Category.hungarian_name == filterBy)
     ).all()
 
-    return jsonify([word.serialize() for word in words])
+    return jsonify([word.serialize(filterBy) for word in words])
 
 
 @views.route("/dictionary")

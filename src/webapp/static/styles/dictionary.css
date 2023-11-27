@@ -6,7 +6,7 @@ body {
     background-image: url("../img/background_classic.jpg");
     background-size: cover;
     font-family: Tahoma;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     font-size: min(16px, calc(3px + 0.4vw));
     margin: 0;
     display: flex;
@@ -35,6 +35,7 @@ main {
     place-items: center;
     justify-content: center;
     height: 100%;
+    overflow-y: auto;
 }
 
 
@@ -139,7 +140,7 @@ h1 {
 .word-list {
     height: 250px;
     overflow-y: auto;
-    padding: 10px;
+    margin-top: 10px;
     width: 100%;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -171,4 +172,9 @@ h1 {
     align-items: center;
     font-weight: bold;
     text-transform: capitalize;
+}
+.word-card.matched-by-category {
+    background-color: rgba(168, 241, 255, 0.52);
+    border: 1px solid rgba(0, 51, 255, 0.65);
+    color: #ffffff;
 }

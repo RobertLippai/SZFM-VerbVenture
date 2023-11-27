@@ -96,6 +96,13 @@ header #control_buttons button {
     transform: scale(0.9);
 }
 
+.disabled {
+    color: #e3e3e3cc;
+    background-color: #686868;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 #nav_buttons {
     margin: 2em;
     height: 80%;
