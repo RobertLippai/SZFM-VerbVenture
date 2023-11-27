@@ -8,6 +8,88 @@
     
 
 </head>
+
+<script>
+    var correctAnswer = "cat";
+    var jovalasz=false;
+    let wonpointscounter = 0;
+    let triescounter = 0;
+    
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var area = document.getElementById("writeing");
+    
+    
+    
+    const keszButton = document.querySelector('.kesz');
+    
+
+    keszButton.addEventListener("click",function(){
+        const userAnswer = document.getElementById("writeing").value;
+        console.log(userAnswer)
+        if (correctAnswer == userAnswer.trim()) {
+            area.style.transition = 'background-color 1s ease';
+            area.style.backgroundColor = '#00FF00';
+            jovalasz=true;
+        } else {
+            area.style.transition = 'background-color 1s ease';
+            area.style.backgroundColor = '#FF0000';
+            jovalasz=false;
+            setTimeout(function () {
+                area.style.backgroundColor = '';
+            }, 1500);
+        }
+    });
+    
+    const elorehaladasElem = document.querySelector('.elorehaladas');
+    const nextButton = document.querySelector('.next');
+    let progress = 0;
+    let isFirstClick = 0;
+
+    nextButton.addEventListener('click', function() {
+        
+        triescounter += 8;
+        if(jovalasz==true){
+        isFirstClick += 1;
+        progress += 100;
+        }
+        // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
+        if (progress > 100) {
+            progress = 100;
+        }
+
+        elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
+
+        
+    if (isFirstClick == 1) {
+        /*document.getElementById("writeing").value="";
+        jovalasz="false";
+        document.getElementById("writeing").style.backgroundColor="";
+        */
+        let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Szokartyak', wonpoints='__won__', tries='__tries__') }}";
+        url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
+        window.location.href = url;
+    } if (isFirstClick == 2) {
+    /*let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Szokartyak', wonpoints='__won__', tries='__tries__') }}";
+    url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);*/
+    
+    
+
+
+}
+/*if(isFirstClick==1){
+        correctAnswer = "dog";
+    }
+*/
+
+});
+    });
+function playAudio() {
+    var audio = document.getElementById("hang");
+    audio.play();
+}
+</script>
+
 <body>
 
     <div class="header">
@@ -16,20 +98,24 @@
         </div>
         <div class="title"><h1>Listening</h1></div>
         <div class="elorehaladas">
+            <div class="progress-bar"></div>
             <p>előrehaladás</p>
         </div>
         </div>
 
         <main>
-            <button class="listening"><div id="image"><img src="../static/images/speaker.png" alt="felolvasás" title="felolvas"></div></button>
-            <div id="textAreas">
-                <textarea id="writeing" name="writeing" rows="4" cols="50">
-                    At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
-                </textarea>
+            <div class="kozep">
+                <button class="listening" onclick="playAudio()"><audio id="hang" src="{{ url_for('static', filename='voices/hangfelolvas/hang1.mp3') }}"></audio><div id="image"><img src="../static/images/speaker.png" alt="felolvasás" title="felolvas"></div></button>
+                <div id="textAreas">
+                    <textarea id="writeing" name="writeing"  rows="100%" cols="100%">
+                     
+                    </textarea>
+                    
+                </div>
+                <button class="kesz"><p>Ellenörzés</p></button>
             </div>
-
             <div class="footer">
-                <button class="exit"><p>Kilépés</p></button>
+                <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
                 <button class="next"><p>Tovább</p></button>
             </div>
         </main>

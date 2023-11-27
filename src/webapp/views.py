@@ -124,6 +124,12 @@ def popup(text, game, wonpoints, tries):
 def complete_it():
     return render_template('complete_it.html', user=current_user)
 
+@views.route("/Listening")
+@login_required
+def Listening():
+    return render_template('Listening.html', user=current_user)
+
+
 @views.route("/dropWordTable")
 def dropT():
     Word.__table__.drop(db.engine)

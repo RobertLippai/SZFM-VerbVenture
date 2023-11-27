@@ -40,12 +40,24 @@ body {
     margin-right: 1rem;
 }
 .elorehaladas{
-    margin-right: 6vh;
+    margin-right: 10vh;
     background: #ffffffe3;
     height: 100%;
     margin-top: 1rem;
     min-width: 20%;
     margin-left: 1rem;
+    position: relative;
+}
+.progress-bar {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 0;
+    background: linear-gradient(to right, #00FFFF 100%, transparent 100%);
+    transition: width 1s ease; 
+
 }
 .user p{
     margin: 10px
@@ -107,6 +119,42 @@ p{
     font-weight: bold;
     text-align: center;
     font-size: 2.5vh;
+    
+}
+.kozep{
+    display: flex;
+    flex-flow: row wrap;
+    width: 90em;
+    gap:50px;
+    justify-content: center;
+    text-align: center;
+}
+.listening{
+    flex-basis: 100%;
+}
+.new_listening{
+    display: none;
+}
+#textAreas{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-basis: 100%;
+    max-width: 90em;
+}
+textarea{
+    font-size: 2rem;
+    width: 70%;
+    height: 15rem;
+    background-color: #e3e3e3a9;
+    backdrop-filter: blur(1em);
+    border-radius: 1.5em;
+    box-shadow: 2em 2em rgba(0, 0, 0, 0.15);
+    
+}
+textarea:hover{
+    cursor: pointer;
+    border-width: 5px;
 }
 main .footer{
     display: flex;
@@ -115,21 +163,39 @@ main .footer{
     box-shadow: none;
     backdrop-filter: none;
     width: 100vh;
-    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
 }
+
 button{
     width: 7rem;
     min-height: 4rem;
     border-radius: 10px;
+    
+}
+.kesz{
+    width: 12rem;
+    background-color: #e3e3e3e7;
+}
+.kesz:hover{
+    background-color: rgba(255, 228, 196, 0.336);
+    cursor: pointer;
 }
 .exit{
     float: left;
+    position: relative;
     background-color: #e3e3e3a9;
     margin-right: auto;
     margin-left: 2rem;
     margin-top: 3rem;
     margin-right: 1rem;
-
+}
+.exit img{
+    position: absolute;
+    height: 3.6em;
+    left: 3em;
+    bottom: 0.5em;
 }
 .next{
     float:right;
@@ -162,7 +228,9 @@ main .listening {
     margin-top: 1rem;
 }
 main .textAreas{
-    display: flex;
+    flex-basis: 100%;
+    max-width: 90em;
+    
 }
 main .listening:hover{
     background-color: bisque;
@@ -171,4 +239,37 @@ main .listening:hover{
 img{
     max-width:70%;
     max-height:70%;
+}
+@media screen and (max-width: 768px){
+    .title{
+        display: flex;
+        width: 10rem;
+        font-size: 0.7rem;
+    }
+    .user{
+        margin-left: 6vh;
+    }
+    .elorehaladas{
+        margin-right: 6vh;
+    }
+}
+@media screen and (max-width: 656px){
+    .title{
+        display: flex;
+        font-size: 0.5rem;
+        height: 3rem;
+    }
+    .user{
+        margin-left: 2vh;
+    }
+    .elorehaladas{
+        margin-right: 2vh;
+    }
+    .user p{
+        height: 2rem;
+        font-size: 0.7rem;
+    }
+    .elorehaladas p{
+        font-size: 0.5rem;
+    }
 }
