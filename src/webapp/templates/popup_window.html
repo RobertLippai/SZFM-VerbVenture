@@ -22,7 +22,7 @@
     <title>{% block title %}Base Template{% endblock %}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     {% block header %} {% endblock %}
-
+    {% include 'embeddables/_dynamic_background.html' %}
 </head>
 <body>
 

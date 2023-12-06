@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VerbVenture</title>
     <link rel="stylesheet" type="text/css" href="../static/styles/complete_it.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     {% include 'embeddables/_dynamic_background.html' %}
     
-</head>
 
 
 <script>
+
+    var joValasz = false;
     function valasz(element){
         console.log("clicked");
         if(element.classList.contains("jo")){
             console.log("clicked jo");
+            element.style.transition = 'background-color 1s ease';
             element.style.color = '#00FF00';
+            joValasz = true;
         }
         if(element.classList.contains("rossz")){
             console.log("clicked rossz");
+            element.style.transition = 'background-color 1s ease';
             element.style.color = '#FF0000';
+            joValasz = false;
         }
 
         setTimeout(function () {
@@ -32,23 +35,68 @@
 
 
 <script>
+    let wonpointscounter = 0;
+    let triescounter = 0;
+
     document.addEventListener('DOMContentLoaded', function() {
     const elorehaladasElem = document.querySelector('.elorehaladas');
     const nextButton = document.querySelector('.next');
     let progress = 0;
+    let isFirstClick = 0;
 
     nextButton.addEventListener('click', function() {
-        progress += 50; // Adjust the step as needed
-
+        console.log(joValasz)
+        console.log(isFirstClick)
+        if(joValasz==true){
+        isFirstClick += 1;
+        progress += 50;
+        wonpointscounter++;
+        triescounter++;
+        } else {
+            triescounter++;
+        }
         // Korlátozzuk a progress-bar szélességét, hogy ne menjen ki a div-ből
         if (progress > 100) {
             progress = 100;
         }
 
         elorehaladasElem.querySelector('.progress-bar').style.width = `${progress}%`;
-    });
+
+        if (isFirstClick === 0) {
+            var word = document.querySelector('.szoveg');
+            word.style.display = 'flex';
+            var answer = document.querySelector('.answers');
+            answer.style.display = 'flex';
+        
+            var word = document.querySelector('.new_szoveg');
+            word.style.display = 'none';
+            var answer = document.querySelector('.new_answers');
+            answer.style.display = 'none';
+            
+        
+    } if (isFirstClick == 1) {
+            var word = document.querySelector('.szoveg');
+            word.style.display = 'none';
+            var answer = document.querySelector('.answers');
+            answer.style.display = 'none';
+        
+            var word = document.querySelector('.new_szoveg');
+            word.style.display = 'flex';
+            var answer = document.querySelector('.new_answers');
+            answer.style.display = 'flex';
+            joValasz=false
+    } if (isFirstClick == 2) {
+    let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='EgeszitsdKi', wonpoints='__won__', tries='__tries__') }}";
+    url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
+    
+    window.location.href = url;
+}
+
 });
+    });
 </script>
+</head>
+
 <body>
 
     <div class="header">
@@ -65,19 +113,25 @@
 
         <main>
             <div class="szoveg">
-                <p>Ez egy nagyon frappáns szöveg lenne, de sajnos hiányzik belőle ____________.</p>
+                <p>We have a very __________ day</p>
             </div>
-            <div class="leftSide">
-                
-                <button class="clickable jo leftWord" onclick="valasz(this)"><p>egy szó</p></button>
-                <button class="clickable rossz leftWord" onclick="valasz(this)"><p>a spiritusz</p></button>
-            </div>    
-            <div class="rightSide">
-                <button class="clickable rossz rightWord" onclick="valasz(this)"><p>a mustár</p></button>
-                <button class="clickable rossz rightWord" onclick="valasz(this)"><p>egy Soros-referencia</p></button>
+            <div class="answers">
+                <button class="clickable jo answer" onclick="valasz(this)"><p>bad</p></button>
+                <button class="clickable rossz answer" onclick="valasz(this)"><p>lake</p></button>
+                <button class="clickable rossz answer" onclick="valasz(this)"><p>word</p></button>
+                <button class="clickable rossz answer" onclick="valasz(this)"><p>cat</p></button>
             </div>
             
-            
+            <div class="szoveg new_szoveg">
+                <p>This is a sentence, but there is one _______ missing.</p>
+            </div>
+            <div class="answers new_answers">
+                <button class="clickable rossz answer" onclick="valasz(this)"><p>ocean</p></button>
+                <button class="clickable rossz answer" onclick="valasz(this)"><p>dog</p></button>
+                <button class="clickable jo answer" onclick="valasz(this)"><p>word</p></button>
+                <button class="clickable rossz answer" onclick="valasz(this)"><p>baby</p></button>
+            </div>
+
             <div class="footer">
                 <button class="exit" id="backbutton" class="clickable" title="kilépés" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
                 <button class="next">Tovább</button>

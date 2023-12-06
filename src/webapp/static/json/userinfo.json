@@ -156,21 +156,89 @@
     "userName": "eeen",
     "scores": {
       "Szokirako": 0,
-      "Szokartyak": 16,
+      "Szokartyak": 88,
+      "EgeszitsdKi": 4,
+      "Listening": 2,
+      "Szoparositas": 16
+    },
+    "tries": {
+      "Szokirako": 0,
+      "Szokartyak": 88,
+      "EgeszitsdKi": 5,
+      "Listening": 2,
+      "Szoparositas": 16
+    }
+  },
+  {
+    "userName": "jozsibacsi",
+    "scores": {
+      "Szokirako": 0,
+      "Szokartyak": 29,
+      "EgeszitsdKi": 4,
+      "Listening": 1,
+      "Szoparositas": 96
+    },
+    "tries": {
+      "Szokirako": 0,
+      "Szokartyak": 134,
+      "EgeszitsdKi": 5,
+      "Listening": 2,
+      "Szoparositas": 103
+    }
+  },
+  {
+    "userName": "admin",
+    "scores": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
       "EgeszitsdKi": 0,
       "Listening": 0,
       "Szoparositas": 16
     },
     "tries": {
       "Szokirako": 0,
-      "Szokartyak": 16,
+      "Szokartyak": 352,
       "EgeszitsdKi": 0,
       "Listening": 0,
       "Szoparositas": 16
     }
   },
   {
-    "userName": "jozsibacsi",
+    "userName": "asdfghjjkl",
+    "scores": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 0
+    },
+    "tries": {
+      "Szokirako": 0,
+      "Szokartyak": 0,
+      "EgeszitsdKi": 0,
+      "Listening": 0,
+      "Szoparositas": 0
+    }
+  },
+  {
+    "userName": "sztemis",
+    "scores": {
+      "Szokirako": 0,
+      "Szokartyak": 16,
+      "EgeszitsdKi": 2,
+      "Listening": 1,
+      "Szoparositas": 0
+    },
+    "tries": {
+      "Szokirako": 0,
+      "Szokartyak": 16,
+      "EgeszitsdKi": 2,
+      "Listening": 1,
+      "Szoparositas": 0
+    }
+  },
+  {
+    "userName": "egynagyonnagyonhosszunevuember",
     "scores": {
       "Szokirako": 0,
       "Szokartyak": 0,

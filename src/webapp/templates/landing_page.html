@@ -23,8 +23,8 @@
             <button id="szoparositas" onclick="location.href='{{ url_for( 'views.words_pair') }}'" class="clickable">Szópárosítás</button>
             <button id="egeszitsd_ki" onclick="location.href='{{ url_for( 'views.complete_it') }}';" class="clickable">Egészítsd ki</button>
             <button id="szotar" onclick="location.href='{{ url_for( 'views.dictionary') }}';" class="clickable">Szótár</button>
-            <button id="listening" onclick="location.href='listening.html';" class="disabled">Listening</button>
-            <button id="szokirako" onclick="location.href='szokirako.html';" class="disabled">Szókirakó</button>
+            <button id="listening" onclick="location.href='{{ url_for( 'views.Listening') }}';" class="clickable">Listening</button>
+            <button id="szokirako" onclick="location.href='szokirako.html';" class="disabled" disabled>Szókirakó</button>
             <button id="elorehaladas" onclick="location.href='{{ url_for( 'views.progress') }}'" class="clickable">Előrehaladás</button>
         </div>
     </main>
