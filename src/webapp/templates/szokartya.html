@@ -21,11 +21,6 @@
         }
 
 
-        //Give Score if clicked first
-        if (element.classList.contains("givesscore")) {
-            wonpointscounter++;
-            element.classList.remove("givesscore");
-        }
     
 
         console.log("clicked");
@@ -72,7 +67,7 @@
     });
     nextButton.addEventListener('click', function() {
 
-        triescounter += 8;
+
 
 
 
@@ -109,9 +104,14 @@
             document.querySelectorAll('.new_words').forEach(function(newWord) {
                 newWord.style.display = 'flex';
             });
+            wonpointscounter += 8;
+            triescounter += 8;
         } if (isFirstClick == 2) {
+            wonpointscounter += 8;
+            triescounter += 8;
             let url = "{{ url_for('views.popup', text='Visszatérés a főoldalra...', game='Szokartyak', wonpoints='__won__', tries='__tries__') }}";
             url = url.replace('__won__', wonpointscounter).replace('__tries__', triescounter);
+
             
             window.location.href = url;
         }
@@ -141,7 +141,7 @@ function playAudio(index, isNew) {
     </div>
     </div>
     <main>
-        <div class="backtop"><button class="back">Vissza</button></div>
+        <div class="backtop"><button class="back" title="vissza az előző szókártyákhoz">Vissza</button></div>
         {% for word in words %}
         <div class="words givesscore" onclick="changeWord(this, event)" data-hang="hang{{ loop.index }}.mp3">
             <p> {{word}} </p>
@@ -157,7 +157,7 @@ function playAudio(index, isNew) {
         </div>
         {% endfor %}
         <div class="footer">
-            <button class="exit" id="backbutton" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
+            <button class="exit" id="backbutton" title="kilépés" class="clickable" onclick="location.href='{{ url_for( 'views.landing_page') }}'"><img src="{{ url_for('static',filename='img/svg-path.svg') }} "></button>
             <button class="next">Tovább</button>
         </div>
     </main>

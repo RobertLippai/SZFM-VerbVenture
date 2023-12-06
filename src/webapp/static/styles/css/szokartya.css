@@ -18,6 +18,9 @@ body {
 .header{
     display: flex;
 }
+.header p{
+    font-size: 2vh;
+}
 .title{
     margin: auto;
     background-color: rgba(255, 255, 255, 0.486);
@@ -25,7 +28,6 @@ body {
     height: 5.5rem;
     width: 20rem;
     margin-top: 0.7rem;
-    padding-top: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -36,8 +38,8 @@ body {
     min-width: 20%;
     background: #ffffff1e;
     height: 100%;
-    margin-top: 1rem;
-    margin-right: 1rem;
+    margin: auto;
+    border-radius: 15px;
 }
 .user p{
     margin: 10px
@@ -46,9 +48,8 @@ body {
     margin-right: 10vh;
     background: rgba(255, 255, 255, 0.44);
     height: 100%;
-    margin-top: 1rem;
+    margin: auto;
     min-width: 20%;
-    margin-left: 1rem;
     position: relative;
 }
 .progress-bar {
@@ -64,7 +65,6 @@ body {
 }
 .elorehaladas p{
     text-align: center;
-    margin: 10px;
     position: relative;
     z-index: 1;
 }
@@ -74,33 +74,24 @@ body {
         width: 10rem;
         font-size: 0.7rem;
     }
-    .user{
-        margin-left: 6vh;
-    }
-    .elorehaladas{
-        margin-right: 6vh;
-    }
+
 }
 @media screen and (max-width: 656px){
     .title{
         display: flex;
         font-size: 0.5rem;
         height: 3rem;
-    }
-    .user{
-        margin-left: 2vh;
-        height: 2rem;
+        width: 6rem;
+        margin-bottom: 1rem;
     }
     .elorehaladas{
-        margin-right: 2vh;
-    }
-    .user p{
-        height: 2rem;
-        font-size: 0.7rem;
+        width: 4rem;
     }
     .elorehaladas p{
-        font-size: 0.5rem;
+        font-size: 1.2vh;
     }
+
+
 }
 
 main{
@@ -125,25 +116,25 @@ main{
     display:flex;
     flex-basis: 100%;
     float: left;
-}
-.backtop p{
     font-size: 2vh;
 }
+
 main .back{
     display:flex;
     position: relative;
     background-color: #e3e3e3a9;
     cursor: pointer;
-    min-height: 3rem;
-    min-width: 6rem;
+    min-height: 5vh;
+    min-width: 10vh;
     text-align: center;
     justify-content: center;
     align-items: center;
     margin-left: 2rem;
     border-radius: 20px;
     max-width: 17rem;
-	font-size: 1.25em;
+	font-size: 2vh;
 	font-weight: bold;
+    margin-top: 2rem;
 }
 
 .back:hover{
@@ -179,7 +170,7 @@ p{
     text-align: center;
     font-size: 2.5vh;
 }
-img:not(.footer img) {
+img{
     position: absolute;
     bottom: 0.3rem;
     left: 0.7rem;
@@ -196,75 +187,35 @@ main .footer{
     width: 100vh;
     margin-bottom: 1rem;
 }
-
+button{
+    min-width: 12vh;
+    min-height: 7vh;
+    border-radius: 10px;
+    font-size: 2vh;
+}
 .exit{
     float: left;
+    position: relative;
     background-color: #e3e3e3a9;
-
+    margin-right: auto;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
+}
+.exit img{
+    position: absolute;
+    height: 2.6em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .next{
     float:right;
     background-color: #e3e3e3a9;
+    margin-left: auto;
+    margin-right: 2rem;    
+    margin-top: 3rem;
 }
-.exit:hover{
-    background-color: bisque;
-    cursor: pointer;
-}
-.next:hover{
-    background-color: bisque;
-    cursor: pointer;
-}
-button {
-	border: none;
-	box-shadow: none !important;
-}
-.footer {
-	display: flex;
-	justify-content: space-between;
-	height: 3em;
-}
-
-.footer button {
-	border-radius: 1.5em;
-}
-
-#backbutton {
-    height: 100%;
-    width: 10%;
-    margin-left: 1em;
-    margin-bottom: 1em;
-    padding: 0.2em;
-}
-
-#backbutton img{
-   height: 2em;
-}
-
-.next {
-	height: 100%;
-	font-size: 1.5em;
-	font-weight: bold;
-	min-width: fit-content;
-    width: 10%;
-    margin-right: 1em;
-    margin-bottom: 1em;
-}
-
-
-button {
-	border: none;
-	box-shadow: none !important;
-	transition: all 0.1s ease-in-out !important;
-    background-color: #e3e3e361 !important;
-    backdrop-filter: blur(1em);
-    -webkit-backdrop-filter: blur(1em);
-    border-radius: 1.5em;
-    border: none;
-    font-family: inherit;
-    font-weight: bold;
-    text-shadow: 0.1em 0.1em rgba(0, 0, 0, 0.15)
-}
-
 button:hover {
     transform: scale(1.05);
     transition: all 0.3s ease-in-out !important;
@@ -275,12 +226,4 @@ button:hover {
 button:active {
     transform: scale(0.9);
 	background-color: #e3e3e3cc !important;
-}
-
-.user, .title, .elorehaladas {
-    background-color: #e3e3e361;
-	border-radius: 1.5em;
-}
-.progress-bar{
-    	border-radius: 1.5em;
 }
